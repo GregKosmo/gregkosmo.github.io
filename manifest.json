@@ -1,0 +1,13 @@
+{
+    "short_name": "GregKos",
+    "name": "Gregory Kosmacek",
+    "background_color": "#a8a8a8",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "type": "image/png",
+        "sizes": "479x479"
+      }
+    ],
+    "start_url": "index.html?launcher=true"
+  }
