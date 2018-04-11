@@ -18,5 +18,10 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(e){
-
+    console.log(event.request.url);
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            return response || fetch(event.request);
+        })
+    );
 });
