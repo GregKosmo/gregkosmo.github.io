@@ -2,8 +2,7 @@ var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/',
   '/main.css',
-  '/script.js',
-  '/index.html'
+  '/script.js'
 ];
 
 self.addEventListener('install', function(event) {
@@ -16,4 +15,7 @@ self.addEventListener('install', function(event) {
       })
   );
 });
-  
+
+self.addEventListener('fetch', function(e){
+
+});
