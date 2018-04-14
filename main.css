@@ -10,6 +10,29 @@ html {
     min-height: 100%;
 }
 
+body {
+    margin: 0;
+}
+
+.navBar {
+    background: #2f2f2f;
+    height: 45px;
+    box-shadow: 0px 0px 8px rgb(78, 78, 78);
+    position: relative;
+}
+
+.navBar a {
+    color: white;
+    display: inline-block;
+    padding: 11px;
+    font-size: 18px;
+}
+
+.navBar a:hover, .navBar a:focus {
+    cursor: pointer;
+    background: rgba(255, 255, 255, .05)
+}
+
 label {
     font-weight: bold;
 }
@@ -59,42 +82,46 @@ input[type="reset"]:active {
 @media only screen and (min-width: 1499px) {
     .pageContent {
         background: white;
-        border: 1px solid rgb(97, 97, 97);
-        box-shadow: 0px 0px 8px rgba(131, 131, 131, 0.5);
-        border-radius: 3px;
+        border: 1px solid rgb(68, 68, 68);
+        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
         margin: 0 20%;
-        padding: 1%;
+        padding: 10px;
     }
 }
 
 @media only screen and (max-width: 1500px) and (min-width: 1024px) {
     .pageContent {
         background: white;
-        border: 1px solid rgb(97, 97, 97);
-        box-shadow: 0px 0px 8px rgba(131, 131, 131, 0.5);
-        border-radius: 3px;
+        border: 1px solid rgb(68, 68, 68);
+        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
         margin: 0 15%;
-        padding: 1%;
+        padding: 10px;
     }
 }
 
 @media only screen and (max-width: 1025px) and (min-width: 767px) {
     .pageContent {
         background: white;
-        border: 1px solid rgb(97, 97, 97);
-        box-shadow: 0px 0px 8px rgba(131, 131, 131, 0.5);
-        border-radius: 3px;
+        border: 1px solid rgb(68, 68, 68);
+        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
         margin: 0 10%;
-        padding: 1%;
+        padding: 10px;
     }
 }
 
 @media only screen and (max-width: 768px) and (min-width: 449px) {
     .pageContent {
         background: white;
-        border: 1px solid rgb(97, 97, 97);
-        box-shadow: 0px 0px 8px rgba(131, 131, 131, 0.5);
-        border-radius: 3px;
+        border: 1px solid rgb(68, 68, 68);
+        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
         margin: 0 5%;
         padding: 1%;
     }
@@ -103,9 +130,10 @@ input[type="reset"]:active {
 @media only screen and (max-width: 450px) {
     .pageContent {
         background: white;
-        border: 1px solid rgb(97, 97, 97);
-        box-shadow: 0px 0px 8px rgba(131, 131, 131, 0.5);
-        border-radius: 3px;
+        border: 1px solid rgb(68, 68, 68);
+        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
         margin: 0 1%;
         padding: 1%;
     }
