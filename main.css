@@ -14,23 +14,14 @@ body {
     margin: 0;
 }
 
-.navBar {
-    background: #2f2f2f;
-    height: 45px;
-    box-shadow: 0px 0px 8px rgb(78, 78, 78);
-    position: relative;
-}
-
-.navBar a {
-    color: white;
-    display: inline-block;
-    padding: 11px;
-    font-size: 18px;
-}
-
-.navBar a:hover, .navBar a:focus {
-    cursor: pointer;
-    background: rgba(255, 255, 255, .05)
+.pageContent {
+    background: white;
+    border-color: rgb(114, 114, 114);
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
 }
 
 label {
@@ -55,7 +46,6 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"] {
     padding: 2px 14px;
-    background: none;
     border-top-width: 1px;
 }
 
@@ -79,49 +69,88 @@ input[type="reset"]:active {
     padding-bottom: 5px;
 }
 
-@media only screen and (min-width: 1499px) {
-    .pageContent {
+@media only screen and (min-width: 769px) {
+    .navBar {
+        background: #2f2f2f;
+        height: 45px;
+        box-shadow: 0px 0px 8px rgb(78, 78, 78);
+        position: relative;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .menuItem {
+        color: white;
+        display: inline-block;
+        padding: 11px;
+        font-size: 18px;
+    }
+
+    .menuItem:hover, .menuItem:focus {
+        cursor: pointer;
+        background: rgba(255, 255, 255, .05)
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navBar {
+        display: grid;
+        background: #2f2f2f;
+        height: 45px;
+        box-shadow: 0px 0px 8px rgb(78, 78, 78);
+        position: relative;
+    }
+
+    .hamburger {
+        color: white;
+        display: inline-block;
+        padding: 11px;
+        font-size: 18px;
+    }
+
+    .menuItem {
         background: white;
-        border: 1px solid rgb(68, 68, 68);
-        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
+        display: inline-block;
+        padding: 11px;
+        font-size: 18px;
+    }
+
+    .menuItem:hover, .menuItem:focus {
+        cursor: pointer;
+        background: rgb(249, 249, 249);
+    }
+
+    .hamburger:hover, .hamburger:focus {
+        cursor: pointer;
+        background: rgba(255, 255, 255, .05)
+    }
+}
+
+@media only screen and (min-width: 1501px) {
+    .pageContent {
         margin: 0 20%;
         padding: 10px;
     }
 }
 
-@media only screen and (max-width: 1500px) and (min-width: 1024px) {
+@media only screen and (max-width: 1500px) and (min-width: 1026px) {
     .pageContent {
-        background: white;
-        border: 1px solid rgb(68, 68, 68);
-        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
         margin: 0 15%;
         padding: 10px;
     }
 }
 
-@media only screen and (max-width: 1025px) and (min-width: 767px) {
+@media only screen and (max-width: 1025px) and (min-width: 769px) {
     .pageContent {
-        background: white;
-        border: 1px solid rgb(68, 68, 68);
-        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
         margin: 0 10%;
         padding: 10px;
     }
 }
 
-@media only screen and (max-width: 768px) and (min-width: 449px) {
+@media only screen and (max-width: 768px) and (min-width: 451px) {
     .pageContent {
-        background: white;
-        border: 1px solid rgb(68, 68, 68);
-        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
         margin: 0 5%;
         padding: 1%;
     }
@@ -129,11 +158,6 @@ input[type="reset"]:active {
 
 @media only screen and (max-width: 450px) {
     .pageContent {
-        background: white;
-        border: 1px solid rgb(68, 68, 68);
-        box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
         margin: 0 1%;
         padding: 1%;
     }

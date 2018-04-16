@@ -1,4 +1,6 @@
 <html lang="en">
+    <!--#ff color pallete, starting with #ff7474-->
+
     <head>
         <link rel="manifest" href="manifest.json"></link>
         <meta name="theme-color" content="#a8a8a8"/>
@@ -8,14 +10,16 @@
         <title>Gregory Kosmacek</title>
     </head>
 
-    <div class="navBar">
-        <a>Gregory Kosmacek</a>
-        <a>Portfolio</a>
-        <a>Tools</a>
-    </div>
 
-    <div class="pageContent">
-        <body>
+    <body>
+        <div class="navBar" id="navBar">
+            <a class="hamburger" onclick="toggleMenu()">=</a>
+            <a class="menuItem">Gregory Kosmacek</a>
+            <a class="menuItem">Portfolio</a>
+            <a class="menuItem">Tools</a>
+        </div>
+
+        <div class="pageContent">
             <div class="input">
                 <label for="text">Text:</label>
                 <input type="text" id="text" name="text"/>
@@ -88,11 +92,10 @@
                 <label for="week">Week:</label>
                 <input type="week" id="week" name="week"/>
             </div>
-        </body>
-
-        <footer>
-            <link rel="stylesheet" href="main.css" media="screen"></link>
-            <script src="script.js"></script>
-        </footer>
-    </div>
+            <footer>
+                <link rel="stylesheet" href="main.css" media="screen"></link>
+                <script src="script.js"></script>
+            </footer>
+        </div>
+    </body>
 </html>
