@@ -47,11 +47,15 @@ var toggleMenu = function() {
 
     if(menuItem.hasAttribute("style")) {
       menuItem.removeAttribute("style");
-      modal.removeAttribute("style");
+      if(modal) {
+        modal.removeAttribute("style");
+      }
       toggled = true;
     } else {
       menuItem.setAttribute("style", "display: none");
-      modal.setAttribute("style", "display: none");
+      if(modal) {
+        modal.setAttribute("style", "display: none");
+      }
       toggled = false;
     }
   }
@@ -64,7 +68,9 @@ window.onresize = function() {
       menuItem.removeAttribute("style");
     }
 
-    modal.setAttribute("style", "display: none");
+    if(modal) {
+      modal.setAttribute("style", "display: none");
+    }
     firstToggle = true;
 
   } else {
@@ -77,7 +83,9 @@ window.onresize = function() {
       firstToggle = false;
     }
     if(toggled) {
-      modal.removeAttribute("style");
+      if(modal) {
+        modal.removeAttribute("style");
+      }
     }
   }
 }
