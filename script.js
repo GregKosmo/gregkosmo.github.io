@@ -15,15 +15,7 @@ init = function() {
     });
   }
 
-  if(toggled) {
-    if(modal) {
-      modal.removeAttribute("style");
-    }
-  } else {
-    if(modal) {
-      modal.setAttribute("style", "display: none");
-    }
-  }
+  modal.setAttribute("style", "display: none");
 
   if(window.innerWidth > 768) {
     for(var i = 0; i < menuItems.length; i++) {
@@ -47,15 +39,11 @@ var toggleMenu = function() {
 
     if(menuItem.hasAttribute("style")) {
       menuItem.removeAttribute("style");
-      if(modal) {
-        modal.removeAttribute("style");
-      }
+      modal.removeAttribute("style");
       toggled = true;
     } else {
       menuItem.setAttribute("style", "display: none");
-      if(modal) {
-        modal.setAttribute("style", "display: none");
-      }
+      modal.setAttribute("style", "display: none");
       toggled = false;
     }
   }
@@ -68,9 +56,7 @@ window.onresize = function() {
       menuItem.removeAttribute("style");
     }
 
-    if(modal) {
-      modal.setAttribute("style", "display: none");
-    }
+    modal.setAttribute("style", "display: none");
     firstToggle = true;
 
   } else {
@@ -83,9 +69,7 @@ window.onresize = function() {
       firstToggle = false;
     }
     if(toggled) {
-      if(modal) {
-        modal.removeAttribute("style");
-      }
+      modal.removeAttribute("style");
     }
   }
 }
