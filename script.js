@@ -16,9 +16,13 @@ init = function() {
   }
 
   if(toggled) {
-    modal.removeAttribute("style");
+    if(modal) {
+      modal.removeAttribute("style");
+    }
   } else {
-    modal.setAttribute("style", "display: none");
+    if(modal) {
+      modal.setAttribute("style", "display: none");
+    }
   }
 
   if(window.innerWidth > 768) {
