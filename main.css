@@ -81,7 +81,9 @@ input[type="reset"]:active {
         background: #2f2f2f;
         height: 45px;
         box-shadow: 0px 0px 8px rgb(78, 78, 78);
-        position: relative;
+        position: fixed;
+        top: 0;
+        width: 100%;
     }
 
     .hamburger {
@@ -108,7 +110,9 @@ input[type="reset"]:active {
         background: #2f2f2f;
         height: 45px;
         box-shadow: 0px 0px 8px rgb(78, 78, 78);
-        position: relative;
+        position: fixed;
+        top: 0;
+        width: 100%;
     }
 
     .hamburger {
@@ -142,35 +146,34 @@ input[type="reset"]:active {
 @media only screen and (min-width: 1501px) {
     .pageContent {
         margin: 0 20%;
-        padding: 10px;
+        padding: 55px 10px 10px 10px;
     }
 }
 
 @media only screen and (max-width: 1500px) and (min-width: 1026px) {
     .pageContent {
         margin: 0 15%;
-        padding: 10px;
+        padding: 55px 10px 10px 10px;
     }
 }
 
 @media only screen and (max-width: 1025px) and (min-width: 769px) {
     .pageContent {
         margin: 0 10%;
-        padding: 10px;
+        padding: 55px 10px 10px 10px;
     }
 }
 
 @media only screen and (max-width: 768px) and (min-width: 451px) {
     .pageContent {
         margin: 0 5%;
-        padding: 1%;
+        padding: 50px 5px 5px 5px;
     }
 }
 
 @media only screen and (max-width: 450px) {
     .pageContent {
-        margin: 0 1%;
-        padding: 1%;
+        padding: 46px 1px 1px 1px;
     }
 
     input {
