@@ -1,4 +1,5 @@
 var navBar = document.getElementById("navBar");
+var modal = document.getElementById("modal");
 var menuItems = navBar.getElementsByClassName("menuItem");
 var firstToggle = true;
 var toggled = false;
@@ -13,6 +14,8 @@ init = function() {
       });
     });
   }
+
+  modal.setAttribute("style", "display: none");
 
   if(window.innerWidth > 768) {
     for(var i = 0; i < menuItems.length; i++) {
@@ -33,11 +36,14 @@ init();
 var toggleMenu = function() {
   for(var i = 0; i < menuItems.length; i++) {
     var menuItem = menuItems[i];
+
     if(menuItem.hasAttribute("style")) {
       menuItem.removeAttribute("style");
+      modal.removeAttribute("style");
       toggled = true;
     } else {
       menuItem.setAttribute("style", "display: none");
+      modal.setAttribute("style", "display: none");
       toggled = false;
     }
   }
@@ -50,6 +56,7 @@ window.onresize = function() {
       menuItem.removeAttribute("style");
     }
 
+    modal.setAttribute("style", "display: none");
     firstToggle = true;
 
   } else {
@@ -60,6 +67,9 @@ window.onresize = function() {
       }
 
       firstToggle = false;
+    }
+    if(toggled) {
+      modal.removeAttribute("style");
     }
   }
 }
