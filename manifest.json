@@ -4,12 +4,12 @@
     "background_color": "#a8a8a8",
     "icons": [
       {
-        "src": "favicon.png",
+        "src": "images/favicon.png",
         "type": "image/png",
         "sizes": "479x479"
       },
       {
-        "src": "favicon_lg.png",
+        "src": "images/favicon_lg.png",
         "type": "image/png",
         "sizes": "512x512"
       }
