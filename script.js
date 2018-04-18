@@ -15,8 +15,6 @@ init = function() {
     });
   }
 
-  modal.setAttribute("style", "display: none");
-
   if(window.innerWidth > 768) {
     for(var i = 0; i < menuItems.length; i++) {
       var menuItem = menuItems[i];
