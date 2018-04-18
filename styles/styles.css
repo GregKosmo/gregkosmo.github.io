@@ -7,8 +7,47 @@ html {
     color: #202020;
     text-shadow: rgba(32, 32, 32, 0.15) 0 0 1px; }
 
+.red {
+  background: #ff7474; }
+
+.orange {
+  background: #ffaf74; }
+
+.yellow {
+  background: #ffe574; }
+
+.green {
+  background: #8bff74; }
+
+.cyan {
+  background: #74fffa; }
+
+.blue {
+  background: #7489ff; }
+
+.purple {
+  background: #b774ff; }
+
+.pink {
+  background: #ff74e5; }
+
 body {
   margin: 0; }
+
+.navBar {
+  background: #2f2f2f;
+  height: 45px;
+  box-shadow: 0px 0px 8px #4e4e4e;
+  position: fixed;
+  top: 0;
+  width: 100%; }
+  .navBar .menuItem {
+    text-decoration: none;
+    display: inline-block;
+    padding: 11px;
+    font-size: 18px; }
+    .navBar .menuItem:hover {
+      cursor: pointer; }
 
 .pageContent {
   background: white;
@@ -50,53 +89,30 @@ input {
   background: rgba(0, 0, 0, 0.2); }
 
 @media only screen and (min-width: 769px) {
-  .navBar {
-    background: #2f2f2f;
-    height: 45px;
-    box-shadow: 0px 0px 8px #4e4e4e;
-    position: fixed;
-    top: 0;
-    width: 100%; }
   .hamburger {
     display: none; }
   .menuItem {
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-    padding: 11px;
-    font-size: 18px; }
-  .menuItem:hover, .menuItem:focus {
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.05); } }
+    color: white; }
+    .menuItem:hover, .menuItem:focus {
+      background: rgba(255, 255, 255, 0.05); } }
 
 @media only screen and (max-width: 768px) {
   .navBar {
-    display: grid;
-    background: #2f2f2f;
-    height: 45px;
-    box-shadow: 0px 0px 8px #4e4e4e;
-    position: fixed;
-    top: 0;
-    width: 100%; }
+    display: grid; }
   .hamburger {
     color: white;
-    display: inline-block;
     padding: 5px 10px 4px 10px;
     font-size: 30px; }
+    .hamburger:hover, .hamburger:focus {
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05); }
   .menuItem {
-    text-decoration: none;
     background: white;
     display: inline-block;
-    padding: 11px;
-    font-size: 18px;
     z-index: 1;
     box-shadow: 0 10px 8px -8px #4e4e4e; }
-  .menuItem:hover, .menuItem:focus {
-    cursor: pointer;
-    background: #f9f9f9; }
-  .hamburger:hover, .hamburger:focus {
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.05); } }
+    .menuItem:hover, .menuItem:focus {
+      background: #f9f9f9; } }
 
 @media only screen and (min-width: 1501px) {
   .pageContent {
