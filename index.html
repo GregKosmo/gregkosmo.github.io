@@ -13,7 +13,7 @@
         <link rel="icon" type="image/png" sizes="512x512" href="images/favicon_lg.png">
         <link rel="mask-icon" href="images/favicon_lg.svg" color="#a8a8a8">
         <link rel="manifest" href="manifest.json"></link>
-        <link rel="stylesheet" href="styles.css?ver=17" media="screen"></link>
+        <link rel="stylesheet" href="getCss()" media="screen"></link>
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
         <title>Gregory Kosmacek</title>
@@ -30,128 +30,16 @@
         </div>
 
         <main>
-            <div class="input">
-                <label for="text">Text:</label>
-                <input type="text" id="text" name="text"/>
-            </div>
-
-            <div class="input">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password"/>
-            </div>
-
-            <div class="input">
-                <label for="checkbox">Checkbox:</label>
-                <input type="checkbox" id="checkbox" name="checkbox"/>
-            </div>
-
-            <div class="input">
-                <label for="radio">Radio:</label>
-                <input type="radio" id="radio" name="radio"/>
-            </div>
-
-            <div class="input">
-                <label for="color">Color:</label>
-                <input type="color" id="color" name="color"/>
-            </div>
-
-            <div class="input">
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date"/>
-            </div>
-
-            <div class="input">
-                <label for="datetime-local">Datetime-local:</label>
-                <input type="datetime-local" id="datetime-local" name="datetime-local"/>
-            </div>
-
-            <div class="input">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"/>
-            </div>
-
-            <div class="input">
-                <label for="month">Month:</label>
-                <input type="month" id="month" name="month"/>
-            </div>
-
-            <div class="input">
-                <label for="number">Number:</label>
-                <input type="number" id="number" name="number"/>
-            </div>
-
-            <div class="input">
-                <label for="search">Search:</label>
-                <input type="search" id="search" name="search"/>
-            </div>
-
-            <div class="input">
-                <label for="tel">Tel:</label>
-                <input type="tel" id="tel" name="tel"/>
-            </div>
-
-            <div class="input">
-                <label for="time">Time:</label>
-                <input type="time" id="time" name="time"/>
-            </div>
-
-            <div class="input">
-                <label for="url">Url:</label>
-                <input type="url" id="url" name="url"/>
-            </div>
-
-            <div class="input">
-                <label for="week">Week:</label>
-                <input type="week" id="week" name="week"/>
-            </div>
-
-            <div class="input">
-                <label for="button">Button:</label>
-                <input type="button" id="button" name="button" value="Button"/>
-            </div>
-            
-            <div class="input">
-                <label for="button">Red Button:</label>
-                <input type="button" id="button" name="button" value="Button" class="red"/>
-            </div>
-            
-            <div class="input"> 
-                <label for="button">Orange Button:</label>
-                <input type="button" id="button" name="button" value="Button" class="orange"/>
-            </div>
-            
-            <div class="input">
-                <label for="button">Yellow Button:</label>
-                <input type="button" id="button" name="button" value="Button" class="yellow"/>
-            </div>
-            
-            <div class="input">
-                <label for="button">Green Button:</label>
-                <input type="button" id="button" name="button" value="Button" class="green"/>
-            </div>
-            
-            <div class="input">
-                <label for="button">Cyan Button:</label>
-                <input type="button" id="button" name="button" value="Button" class="cyan"/>
-            </div>
-            
-            <div class="input">
-                <label for="button">Blue Button:</label>
-                <input type="button" id="button" name="button" value="Button" class="blue"/>
-            </div>
-            
-            <div class="input">
-                <label for="button">Purple Button:</label>
-                <input type="button" id="button" name="button" value="Button" class="purple"/>
-            </div>
-            
-            <div class="input">
-                <label for="button">Pink Button:</label>
-                <input type="button" id="button" name="button" value="Button" class="pink"/>
-            </div>
+            <span class="fab fa-twitter socialMedia" onclick="twitter()"></span>
+            <span class="fab fa-linkedin socialMedia" onclick="linkedin()"></span>
+            <span class="fab fa-facebook socialMedia" onclick="facebook()"></span>
+            <span class="fab fa-github socialMedia" onclick="github()"></span> 
+            <span class="fab fa-youtube socialMedia" onclick="youtube()"></span>
+            <span class="fab fa-instagram socialMedia" onclick="instagram()"></span>
+            <span class="fab fa-stack-overflow socialMedia" onclick="stackoverflow()"></span>
 
             <footer>
-                <script src="scripts/script.js?ver=10"></script>
+                <script src="getJs()"></script>
             </footer>
         </main>
     </body>
