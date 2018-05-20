@@ -33,12 +33,6 @@ gulp.task('buildDev', function() {
         .pipe(concat('config.js'))
         .pipe(gulp.dest('dist'));
 
-    gulp.watch(configPath, function() {
-        gulp.src(configPath)
-            .pipe(concat('config.js'))
-            .pipe(gulp.dest('dist'));
-    });
-
     for(var i = 0; i < folders.length; i++) {
         var folder = folders[i];
         var jsPath = pageFilesPath + '/' + folder + '/' + folder + '.js';
@@ -53,12 +47,6 @@ gulp.task('buildDev', function() {
             gulp.src(jsPath)
                 .pipe(concat(folder + '.js'))
                 .pipe(gulp.dest('dist'));
-
-            gulp.watch(jsPath, function() {
-                gulp.src(jsPath)
-                    .pipe(concat(folder + '.js'))
-                    .pipe(gulp.dest('dist'));
-            })
         }
 
         if(fs.existsSync(scssPath)) {
@@ -68,13 +56,6 @@ gulp.task('buildDev', function() {
                 .pipe(sass())
                 .pipe(concat(folder + '.css'))
                 .pipe(gulp.dest('dist'));
-
-            gulp.watch(scssPath, function() {
-                gulp.src(scssPath)
-                    .pipe(sass())
-                    .pipe(concat(folder + '.css'))
-                    .pipe(gulp.dest('dist'));
-            })
         }
 
         gulp.src(baseHtmlPath)
@@ -118,18 +99,6 @@ gulp.task('buildDev', function() {
             ))
             .pipe(concat(folder + '.html'))
             .pipe(gulp.dest('dist'));
-
-        gulp.watch(htmlPath, function() {
-            gulp.src(baseHtmlPath)
-                .pipe(inject(gulp.src([htmlPath]), {
-                    starttag: '<!-- inject:pageContent -->',
-                    transform: function(filepath, file) {
-                        return file.contents.toString();
-                    }
-                }))
-                .pipe(concat(folder + '.html'))
-                .pipe(gulp.dest('dist'));
-        })
     }
 
     gulp.src(baseHtmlPath)

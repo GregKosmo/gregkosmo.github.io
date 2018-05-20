@@ -1,7 +1,5 @@
 html {
-    background: linear-gradient(to bottom right, #468cfc, #2f62b6);
-    background-image: url("images/duluth.jpg");
-    min-height: 100%;
+    background: black;
 
     * {
         font-family: Arial, Helvetica, sans-serif;
@@ -10,6 +8,20 @@ html {
         text-shadow: rgba(32, 32, 32, 0.15) 0 0 1px;
     }
 } 
+
+.background-blur {
+    background: linear-gradient(to bottom right, #468cfc, #2f62b6);
+    background-image: url("images/duluth_1000.jpg");
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
 
 body {
     margin: 0;
@@ -22,6 +34,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1;
 
     .menuItem {
         text-decoration: none;
@@ -114,6 +127,7 @@ main {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
+    position: fixed;
 }
 
 label {
@@ -271,6 +285,7 @@ input {
 
 @media only screen and (min-width: 1501px) {
     main {
+        width: 58%;
         margin: 0 20%;
         padding: 55px 10px 10px 10px;
     }
@@ -278,6 +293,7 @@ input {
 
 @media only screen and (max-width: 1500px) and (min-width: 1026px) {
     main {
+        width: 68%;
         margin: 0 15%;
         padding: 55px 10px 10px 10px;
     }
@@ -285,6 +301,7 @@ input {
 
 @media only screen and (max-width: 1025px) and (min-width: 769px) {
     main {
+        width: 78%;
         margin: 0 10%;
         padding: 55px 10px 10px 10px;
     }
@@ -292,6 +309,7 @@ input {
 
 @media only screen and (max-width: 768px) and (min-width: 451px) {
     main {
+        width: 88%;
         margin: 0 5%;
         padding: 50px 5px 5px 5px;
     }
@@ -299,6 +317,7 @@ input {
 
 @media only screen and (max-width: 450px) {
     main {
+        width: 100%;
         padding: 46px 1px 1px 1px;
     }
 
