@@ -33,6 +33,12 @@ gulp.task('buildDev', function() {
         .pipe(concat('config.js'))
         .pipe(gulp.dest('dist'));
 
+    gulp.watch(configPath, function() {
+        gulp.src(configPath)
+            .pipe(concat('config.js'))
+            .pipe(gulp.dest('dist'));
+    });
+
     for(var i = 0; i < folders.length; i++) {
         var folder = folders[i];
         var jsPath = pageFilesPath + '/' + folder + '/' + folder + '.js';
@@ -102,7 +108,7 @@ gulp.task('buildDev', function() {
                         return '<link rel="stylesheet" href="' + newPath + '?ver=' + hash + '">';
                     }
                 }),
-                inject(gulp.src(baseScssPath, {read: false}), {
+                inject(gulp.src([baseScssPath], {read: false}), {
                     starttag: '<!-- inject:css -->',
                     transform : function (filePath, file, i, length) {
                         var newPath = filePath.replace('/src/', '').replace('scss', 'css');
@@ -145,6 +151,10 @@ gulp.task('buildProd', function() {
     var baseScssPath = 'src/base.scss';
     var baseHtmlPath = 'src/base.html';
     var configPath = 'config/prod.config.js';
+
+    gulp.src(configPath)
+        .pipe(concat('config.js'))
+        .pipe(gulp.dest('dist'));
 
     for(var i = 0; i < folders.length; i++) {
         var folder = folders[i];
@@ -204,7 +214,7 @@ gulp.task('buildProd', function() {
                         return '<link rel="stylesheet" href="' + newPath + '?ver=' + hash + '">';
                     }
                 }),
-                inject(gulp.src(baseScssPath, {read: false}), {
+                inject(gulp.src([baseScssPath], {read: false}), {
                     starttag: '<!-- inject:css -->',
                     transform : function (filePath, file, i, length) {
                         var newPath = filePath.replace('/src/', '').replace('scss', 'css');
@@ -224,10 +234,6 @@ gulp.task('buildProd', function() {
     gulp.src(baseJsPath)
         .pipe(concat('base.js'))
         .pipe(gulp.dest('dist'))
-
-    gulp.src('config/prod.config.js')
-        .pipe(concat('config.js'))
-        .pipe(gulp.dest('dist'));
 });
 
 var encode = function (input) {
