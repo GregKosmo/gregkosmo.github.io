@@ -53,6 +53,13 @@ body {
         margin-bottom: -1px;
     }
 
+    &:active {
+        border-width: 1px;
+        margin-left: 1px;
+        margin-top: 1px;
+        margin-bottom: 0px;
+    }
+
     &.fa-twitter:hover {
         color: #3eadff;
     }
