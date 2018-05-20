@@ -223,7 +223,7 @@ gulp.task('buildProd', function() {
         .pipe(concat('base.js'))
         .pipe(gulp.dest('dist'))
 
-    gulp.src('config/dev.config.js')
+    gulp.src('config/prod.config.js')
         .pipe(concat('config.js'))
         .pipe(gulp.dest('dist'));
 });
