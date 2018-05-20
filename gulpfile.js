@@ -135,6 +135,99 @@ gulp.task('buildDev', function() {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('buildProd', function() {
+    var folders = getFolders(pageFilesPath);
+    if (folders.length === 0) return done();
+
+    var hash = encode((+new Date).toString(36));
+    var baseJsPath = 'src/base.js';
+    var baseScssPath = 'src/base.scss';
+    var baseHtmlPath = 'src/base.html';
+
+    for(var i = 0; i < folders.length; i++) {
+        var folder = folders[i];
+        var jsPath = pageFilesPath + '/' + folder + '/' + folder + '.js';
+        var scssPath = pageFilesPath + '/' + folder + '/' + folder + '.scss';
+        var htmlPath = pageFilesPath + '/' + folder + '/' + folder + '.html';
+        var jsExists = false;
+        var scssExists = false;
+
+        if(fs.existsSync(jsPath)) {
+            jsExists = true;
+
+            gulp.src(jsPath)
+                .pipe(uglify())
+                .pipe(concat(folder + '.js'))
+                .pipe(gulp.dest('dist'));
+        }
+
+        if(fs.existsSync(scssPath)) {
+            scssExists = true;
+
+            gulp.src(scssPath)
+                .pipe(sass({style: 'compressed'}))
+                .pipe(cleanCSS())
+                .pipe(concat(folder + '.css'))
+                .pipe(gulp.dest('dist'));
+        }
+
+        gulp.src(baseHtmlPath)
+            .pipe(inject(gulp.src([htmlPath]), {
+                starttag: '<!-- inject:pageContent -->',
+                transform: function(filepath, file) {
+                    return file.contents.toString();
+                }
+            }))
+            .pipe(gulpif(jsExists, 
+                inject(gulp.src([baseJsPath, jsPath], {read: false}), {
+                    starttag: '<!-- inject:js -->',
+                    transform : function (filePath, file, i, length) {
+                        var newPath = filePath.replace('/src/', '').replace('pages/', '').replace(folder + '/', '');
+                        return '<script type="text/javascript" src="' + newPath + '?ver=' + hash + '"></script>';
+                    }
+                }),
+                inject(gulp.src([baseJsPath], {read: false}), {
+                    starttag: '<!-- inject:js -->',
+                    transform : function (filePath, file, i, length) {
+                        var newPath = filePath.replace('/src/', '');
+                        return '<script type="text/javascript" src="' + newPath + '?ver=' + hash + '"></script>';
+                    }
+                })
+            ))
+            .pipe(gulpif(scssExists, 
+                inject(gulp.src([baseScssPath, scssPath], {read: false}), {
+                    starttag: '<!-- inject:css -->',
+                    transform : function (filePath, file, i, length) {
+                        var newPath = filePath.replace('/src/', '').replace('pages/', '').replace(folder + '/', '').replace('scss', 'css');
+                        return '<link rel="stylesheet" href="' + newPath + '?ver=' + hash + '">';
+                    }
+                }),
+                inject(gulp.src(baseScssPath, {read: false}), {
+                    starttag: '<!-- inject:css -->',
+                    transform : function (filePath, file, i, length) {
+                        var newPath = filePath.replace('/src/', '').replace('scss', 'css');
+                        return '<link  rel="stylesheet" href="' + newPath + '?ver=' + hash + '">';
+                    }
+                })
+            ))
+            .pipe(concat(folder + '.html'))
+            .pipe(gulp.dest('dist'));
+    }
+
+    gulp.src(baseScssPath)
+        .pipe(sass())
+        .pipe(concat('base.css'))
+        .pipe(gulp.dest('dist'))
+
+    gulp.src(baseJsPath)
+        .pipe(concat('base.js'))
+        .pipe(gulp.dest('dist'))
+
+    gulp.src('config/dev.config.js')
+        .pipe(concat('config.js'))
+        .pipe(gulp.dest('dist'));
+});
+
 var encode = function (input) {
     var output = "";
     var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
