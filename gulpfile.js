@@ -82,14 +82,14 @@ gulp.task('buildDev', function() {
                 inject(gulp.src([baseJsPath, configPath, jsPath], {read: false}), {
                     starttag: '<!-- inject:js -->',
                     transform : function (filePath, file, i, length) {
-                        var newPath = filePath.replace('/src/', '').replace('pages/', '').replace(folder + '/', '').replace(configPath, 'config.js');
+                        var newPath = filePath.replace('/src/', '').replace('pages/', '').replace(folder + '/', '').replace('/' + configPath, 'config.js');
                         return '<script type="text/javascript" src="' + newPath + '?ver=' + hash + '"></script>';
                     }
                 }),
                 inject(gulp.src([baseJsPath, configPath], {read: false}), {
                     starttag: '<!-- inject:js -->',
                     transform : function (filePath, file, i, length) {
-                        var newPath = filePath.replace('/src/', '').replace(configPath, 'config.js');
+                        var newPath = filePath.replace('/src/', '').replace('/' + configPath, 'config.js');
                         return '<script type="text/javascript" src="' + newPath + '?ver=' + hash + '"></script>';
                     }
                 })
@@ -184,14 +184,14 @@ gulp.task('buildProd', function() {
                 inject(gulp.src([baseJsPath, configPath, jsPath], {read: false}), {
                     starttag: '<!-- inject:js -->',
                     transform : function (filePath, file, i, length) {
-                        var newPath = filePath.replace('/src/', '').replace('pages/', '').replace(folder + '/', '').replace(configPath, 'config.js');
+                        var newPath = filePath.replace('/src/', '').replace('pages/', '').replace(folder + '/', '').replace('/' + configPath, 'config.js');
                         return '<script type="text/javascript" src="' + newPath + '?ver=' + hash + '"></script>';
                     }
                 }),
                 inject(gulp.src([baseJsPath, configPath], {read: false}), {
                     starttag: '<!-- inject:js -->',
                     transform : function (filePath, file, i, length) {
-                        var newPath = filePath.replace('/src/', '').replace(configPath, 'config.js');
+                        var newPath = filePath.replace('/src/', '').replace('/' + configPath, 'config.js');
                         return '<script type="text/javascript" src="' + newPath + '?ver=' + hash + '"></script>';
                     }
                 })
