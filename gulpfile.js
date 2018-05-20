@@ -132,6 +132,17 @@ gulp.task('buildDev', function() {
         })
     }
 
+    gulp.src(baseHtmlPath)
+        .pipe(inject(gulp.src([configPath, 'script.js'], {read: false}), {
+            starttag: '<!-- inject:js -->',
+            transform : function (filePath, file, i, length) {
+                var newPath = filePath.replace('/script.js', 'script.js').replace('/' +configPath, 'dist/config.js');
+                return '<script type="text/javascript" src="' + newPath + '?ver=' + hash + '"></script>';
+            }
+        }))
+        .pipe(concat('index.html'))
+        .pipe(gulp.dest(''));
+
     gulp.src(baseScssPath)
         .pipe(sass())
         .pipe(concat('base.css'))
@@ -225,6 +236,17 @@ gulp.task('buildProd', function() {
             .pipe(concat(folder + '.html'))
             .pipe(gulp.dest('dist'));
     }
+
+    gulp.src(baseHtmlPath)
+        .pipe(inject(gulp.src([configPath, 'script.js'], {read: false}), {
+            starttag: '<!-- inject:js -->',
+            transform : function (filePath, file, i, length) {
+                var newPath = filePath.replace('/script.js', 'script.js').replace('/' + configPath, 'dist/config.js');
+                return '<script type="text/javascript" src="' + newPath + '?ver=' + hash + '"></script>';
+            }
+        }))
+        .pipe(concat('index.html'))
+        .pipe(gulp.dest(''));
 
     gulp.src(baseScssPath)
         .pipe(sass())
