@@ -1,1 +1,12 @@
-toUpperCase=function(e,t){document.getElementById(t).innerText=document.getElementById(e).value.toUpperCase()},toLowerCase=function(e,t){document.getElementById(t).innerText=document.getElementById(e).value.toLowerCase()},characterCount=function(e,t){var n=document.getElementById(e).value.length;document.getElementById(t).innerText=0<n?n:""};
+toUpperCase = function(fromId, toId) {
+    document.getElementById(toId).innerText = document.getElementById(fromId).value.toUpperCase();
+}
+
+toLowerCase = function(fromId, toId) {
+    document.getElementById(toId).innerText = document.getElementById(fromId).value.toLowerCase();
+}
+
+characterCount = function(fromId, toId) {
+    var length = document.getElementById(fromId).value.length;
+    document.getElementById(toId).innerText = length > 0 ? length : '';
+}

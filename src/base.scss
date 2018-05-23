@@ -14,13 +14,22 @@ html {
     background-image: url("images/duluth_1000.jpg");
     background-size: cover;
     position: fixed;
-    height: 100%;
-    width: 100%;
+    height: calc(100% + 10px);
+    width: calc(100% + 20px);
+    margin-left: -10px;
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
+    z-index: -1;
+}
+
+.modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .2);
 }
 
 body {
@@ -34,7 +43,6 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
 
     .menuItem {
         text-decoration: none;
@@ -48,30 +56,41 @@ body {
     }
 }
 
-.socialMedia {
+.button {
     font-size: 25px;
-    width: 35px;
-    height: 30px;
     text-align: center;
-    border: 1px solid black;
+    border-color: #2f2f2f;
+    color: #2f2f2f;
+    border-style: solid;
+    border-width: 1px 2px 2px 1px;
     border-radius: 5px;
-    padding-top: 4px;
-    margin-top: 1px;
-    margin-left: 1px;
+    padding: 2px 5px;
+    min-width: 28px;
+    min-height: 28px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
-    &:hover {
-        border-right-width: 2px;
-        border-bottom-width: 2px;
+    &:active:not(:hover) {
+        border-width: 1px 2px 2px 1px;
         margin-left: 0px;
-        margin-top: 0px;
-        margin-bottom: -1px;
     }
 
     &:active {
         border-width: 1px;
         margin-left: 1px;
-        margin-top: 1px;
-        margin-bottom: 0px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 0px 8px rgba(201, 201, 201, 0.5);
     }
 
     &.fa-twitter:hover {
@@ -98,10 +117,10 @@ body {
         color:transparent;
         -webkit-background-clip: text;
         background-clip: text;
-        background-image: #000000; 
-        background-image: -moz-linear-gradient(45deg, #000000 0%, #000000 25%, #000000 50%, #000000 75%, #000000 100%); 
-        background-image: -webkit-linear-gradient(45deg, #000000 0%,#000000 25%,#000000 50%,#000000 75%,#000000 100%); 
-        background-image: linear-gradient(45deg, #000000 0%,#000000 25%,#000000 50%,#000000 75%,#000000 100%); 
+        background-image: #2f2f2f;
+        background-image: -moz-linear-gradient(45deg, #2f2f2f 0%, #2f2f2f 25%, #2f2f2f 50%, #2f2f2f 75%, #2f2f2f 100%); 
+        background-image: -webkit-linear-gradient(45deg, #2f2f2f 0%,#2f2f2f 25%,#2f2f2f 50%,#2f2f2f 75%,#2f2f2f 100%); 
+        background-image: linear-gradient(45deg, #2f2f2f 0%,#2f2f2f 25%,#2f2f2f 50%,#2f2f2f 75%,#2f2f2f 100%); 
         &:hover {
             background-image: #f09433; 
             background-image: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
@@ -113,35 +132,63 @@ body {
     &.fa-stack-overflow:hover {
         color: #ed8612;
     }
+}
 
-    &:hover {
-        cursor: pointer;
+.container-wrapper {
+    display: flex;
+
+    .container {
+        background: white;
+        border-radius: 3px;
+        border-color: #a2a2a2;
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 0px 0px 8px rgba(78, 78, 78, 0.3);
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 5px;
+
+        &.full {
+            width: 100%;
+        }
+
+        &.three-quarter {
+            width: 75%;
+        }
+
+        &.half {
+            width: 50%;
+        }
+
+        &.third {
+            width: 33%;
+        }
+
+        &.quarter {
+            width: 25%;
+        }
+
+        &.fifth {
+            width: 20%;
+        }
+
+        .row {
+            margin: 4px 0 4px 0;
+        }
     }
-}
 
-main {
-    background: white;
-    border-color: rgb(114, 114, 114);
-    border-width: 0 1px 1px 1px;
-    border-style: solid;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    box-shadow: 0px 0px 20px rgba(68, 68, 68, 0.3);
-    position: fixed;
-    box-sizing: border-box;
-}
-
-label {
-    font-weight: bold;
-    text-align: right;
-    display: inline-block;
+    label {
+        font-weight: bold;
+        text-align: right;
+        display: inline-block;
+    }
 }
 
 input {
     border-radius: 3px;
     border-style: solid;
     border-width: 2px 1px 1px 1px;
-    border-color: rgb(97, 97, 97);
+    border-color: #2f2f2f;
     padding: 2px;
     background-color: rgba(255, 255, 255, 0.8);
 
@@ -149,33 +196,6 @@ input {
     &:focus {
         box-shadow: 0px 0px 8px rgba(201, 201, 201, 0.5);
     }
-
-    &[type="button"],
-    &[type="submit"],
-    &[type="reset"] {
-        padding: 2px 14px;
-        border-top-width: 1px;
-        border-bottom-width: 2px;
-
-        &:hover, &:focus {
-            cursor: pointer;
-        }
-
-        &:active {
-            padding: 2px 13px 2px 15px;
-        }
-    }
-}
-
-.input {
-    padding-bottom: 5px;
-}
-
-.modal {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, .2);
 }
 
 .red {
@@ -275,7 +295,6 @@ input {
     .menuItem {
         background: white;
         display: inline-block;
-        z-index: 1;
         box-shadow: 0 10px 8px -8px rgb(78, 78, 78);
 
         &:hover, &:focus {
@@ -288,7 +307,8 @@ input {
     main {
         width: 60%;
         margin: 0 20%;
-        padding: 55px 10px 10px 10px;
+        padding: 50px 10px 10px 10px;
+        box-sizing: border-box;
     }
 }
 
@@ -296,7 +316,8 @@ input {
     main {
         width: 70%;
         margin: 0 15%;
-        padding: 55px 10px 10px 10px;
+        padding: 50px 10px 10px 10px;
+        box-sizing: border-box;
     }
 }
 
@@ -304,7 +325,8 @@ input {
     main {
         width: 80%;
         margin: 0 10%;
-        padding: 55px 10px 10px 10px;
+        padding: 50px 10px 10px 10px;
+        box-sizing: border-box;
     }
 }
 
@@ -313,6 +335,7 @@ input {
         width: 90%;
         margin: 0 5%;
         padding: 50px 5px 5px 5px;
+        box-sizing: border-box;
     }
 }
 
@@ -320,6 +343,7 @@ input {
     main {
         width: 100%;
         padding: 46px 1px 1px 1px;
+        box-sizing: border-box;
     }
 
     input {

@@ -1,3 +1,3 @@
 var config = {
-    "host": "https://www.gregorykosmacek.com/"
+    "host": "file:///C:/Users/Gregory/Website/gregkosmo.github.io/"
 }
