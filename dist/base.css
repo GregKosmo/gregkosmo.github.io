@@ -112,6 +112,8 @@ body {
     margin: 5px; }
     .container-wrapper .container.full {
       width: 100%; }
+    .container-wrapper .container.three-quarter {
+      width: 75%; }
     .container-wrapper .container.half {
       width: 50%; }
     .container-wrapper .container.third {
