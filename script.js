@@ -1,1 +1,0 @@
-window.location.href = config.host + 'dist/home.html';

@@ -1,1 +1,0 @@
-toUpperCase=function(e,t){document.getElementById(t).innerText=document.getElementById(e).value.toUpperCase()},toLowerCase=function(e,t){document.getElementById(t).innerText=document.getElementById(e).value.toLowerCase()},characterCount=function(e,t){var n=document.getElementById(e).value.length;document.getElementById(t).innerText=0<n?n:""};
