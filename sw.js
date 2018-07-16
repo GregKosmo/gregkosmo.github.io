@@ -1,8 +1,5 @@
 var CACHE_NAME = 'gregkosmo-site-cache';
-var urlsToCache = [
-  '/*.css',
-  '/*.js'
-];
+var urlsToCache = [];
 
 self.addEventListener('install', function(event) {
     // Perform install steps
