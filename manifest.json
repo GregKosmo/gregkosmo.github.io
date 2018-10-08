@@ -4,9 +4,9 @@
     "background_color": "#2F2009",
     "icons": [
         {
-        "src": "assets/images/logo.png",
-        "type": "image/png",
-        "sizes": "640x400"
+            "src": "assets/images/logo_lg.png",
+            "type": "image/png",
+            "sizes": "640x640"
         }
     ],
     "start_url": "index.html",
