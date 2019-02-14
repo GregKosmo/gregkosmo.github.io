@@ -1,0 +1,136 @@
+html {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    outline: none;
+    height: 32px;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding: 0px 8px;
+    border-radius: 4px;
+    position: relative;
+    top: 0;
+    transition: top .1s;
+    margin: 2px;
+}
+
+button:hover {
+    top: -2px;
+}
+
+input {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 32px;
+    box-sizing: border-box;
+    vertical-align: top;
+    outline: none;
+    padding: 0px 8px;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+select {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    height: 32px;
+    box-sizing: border-box;
+    vertical-align: top;
+    outline: none;
+    padding: 0px 8px;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+textarea {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    vertical-align: top;
+    outline: none;
+    padding: 8px;
+    resize: vertical;
+    min-height: calc(1rem + 26px);
+    border-radius: 4px;
+    margin: 2px;
+}
+
+option {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label[for] {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(40, 138, 230);
+    outline: none;
+}
+
+a:hover, a:focus {
+    color: rgb(148, 148, 148);
+}
+
+.modal:not(.shown) {
+    display: none;
+}
+
+.modal.shown {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.dialog {
+    position: absolute;
+    padding: 8px;
+    max-width: 950px;
+    z-index: 2;
+    max-height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.dialog .footer {
+    text-align: center;
+}
+
+.colors span {
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+}
+
+.theme-selector {
+    position: fixed;
+    top: 8px;
+    right: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.centered {
+    text-align: center;
+}
+
+.noScroll {
+    overflow: hidden;
+}

@@ -1,42 +1,158 @@
-<!doctype html>
-<html lang="en">
-    <head>
+<!DOCTYPE html>
+<html id="html">
+    <head id="head">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <meta name="theme-color" content="#2F2009"/>
         <meta name="Description" content="Personal website and portfolio of Gregory Kosmacek."/>
-        <meta name="viewport" http-equiv="content-type" content="width=device-width, initial-scale=1.0"/>
-        <meta name="theme-color" content="#2F2009"/>
-        <meta http-equiv="Content-Security-Policy" content="default-src *;
-            img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
-            style-src  'self' 'unsafe-inline' *">
-        <meta charset="UTF-8"/>
-        <meta http-equiv="Cache-Control" max-age=86400 />
         <title>Gregory Kosmacek</title>
-        <base href="/">
-        <link rel="icon" type="image/x-icon" href="./assets/images/logo_lg.png">
-        <link rel="apple-touch-icon" sizes="640x400" href="./assets/images/logo_lg.png">
-        <link rel="icon" type="image/png" sizes="640x400" href="./assets/images/logo_lg.png">
-        <!-- <link rel="mask-icon" href="favicon_lg.svg" color="#a8a8a8"> -->
-        <link rel="manifest" href="manifest.json"></link>
-    <link rel="stylesheet" href="styles.6255a022e8d1e0f0ab1a.css"></head>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="main-unthemed.css?ver=1">
+        <link id="stylesheet" rel="stylesheet" type="text/css" media="screen" href="main-light.css?ver=1">
+        <script src="main.js?ver=1"></script>
+        <script src="sw.js?ver=1"></script>
+        <link rel="manifest" href="manifest.json?ver=1"></link>
+        <link rel="icon" type="image/x-icon" href="./assets/images/logo_lg.png?ver=1">
+        <link rel="apple-touch-icon" sizes="640x400" href="./assets/images/logo_lg.png?ver=1">
+        <link rel="icon" type="image/png" sizes="640x400" href="./assets/images/logo_lg.png?ver=1">
+
+        <noscript>
+            <style type="text/css">
+                #no-javascript-hidden-radio:checked ~ #no-javascript-modal,
+                .javascript-needed {
+                    display: none;
+                }
+            </style>
+        </noscript>
+    </head>
 
     <body>
         <noscript>
-            <div>
-                <h1>Gregory Kosmacek</h1>
-            </div>
+            <input type="radio" class="hidden" id="no-javascript-hidden-radio"/>
+            <div class="modal shown" id="no-javascript-modal">
+                <div class="dialog">
+                    <h1 class="centered">Hi! Thank you for checking out my website.</h1>
+                    <p class="centered">
+                        In order to take advantage of all the features while you're here, it is recommended you enable JavaScript.
+                        While everything should work without it, I think you will enjoy the extra benefits you gain by having it enabled.<br>
+                        <b>Totally up to you though!</b> 🙂
+                    </p>
 
-            <div>
-                <img src="./assets/images/logo.png" alt="Gregory Kosmacek"/>
+                    <div class="footer">
+                        <button id="no-javascript-close-button">
+                            <label for="no-javascript-hidden-radio">Close this message</label>
+                        </button>
+                    </div>
+                </div>
             </div>
+        </noscript> 
 
-            <div>
-                <h2>
-                    Welcome! If you're seeing this, you have javascript disabled in your browser. 
-                    In order to use this website and all of its features, please enable javascript in your browser settings.
-                </h2>
+        <div class="modal javascript-needed" id="local-storage-dialog">
+            <div class="dialog">
+                <h1 class="centered">Hi! Thank you for checking out my website.</h1>
+                <p class="centered">
+                    This site does not use cookies, but can still store infomation on your device using 
+                    <a href="https://www.w3schools.com/html/html5_webstorage.asp" target="_blank" title="Learn more about web storage">web storage.</a>
+                    While we aren't legally required to tell you this, we would still like to give you the option to opt-out of its usage.
+                    We don't collect or sell any personal information, it is used for things like saving your theme choice and hiding this message for the next time you come back.<br>
+                    <b>Totally up to you though!</b> 🙂
+                </p>
+
+                <div class="footer">
+                    <button onclick="setUseLocalStorage(false)">No, I don't want to use web storage</button>
+                    <button onclick="setUseLocalStorage(true)">Yes, I'll use web storage!</button>
+                </div>
             </div>
-        </noscript>
+        </div>
 
-        <app-root></app-root>
-    <script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.b6af3202ae5194d376fe.js"></script><script type="text/javascript" src="main.a8d64dc64ae3e612e9a5.js"></script></body>
+        <div class="theme-selector javascript-needed">
+            <button class="border-black background-black text-white" onclick="switchTheme('dark')">Dark</button>
+            <button class="border-white background-white text-black" onclick="switchTheme('light')">Light</button>
+        </div>
+
+        <div>
+            Hello, world!
+
+            <button>
+                Button
+            </button>
+
+            <input/>
+
+            <select>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+            </select>
+        </div>
+
+        <div class="colors">
+            <span class="border-red">
+                <span class="background-red"></span>
+            </span>
+            
+            <span class="border-blue">
+                <span class="background-blue"></span>
+            </span>
+
+            <span class="border-orange">
+                <span class="background-orange"></span>
+            </span>
+
+            <span class="border-green">
+                <span class="background-green"></span>
+            </span>
+
+            <span class="border-brown">
+                <span class="background-brown"></span>
+            </span>
+
+            <span class="border-yellow">
+                <span class="background-yellow"></span>
+            </span>
+
+            <span class="border-purple">
+                <span class="background-purple"></span>
+            </span>
+
+            <span class="border-black">
+                <span class="background-black"></span>
+            </span>
+
+            <span class="border-white">
+                <span class="background-white"></span>
+            </span>
+        </div>
+
+        <h1 class="text-red">
+            Red Heading
+        </h1>
+        <h1 class="text-blue">
+            Blue Heading
+        </h1>
+        <h1 class="text-orange">
+            Orange Heading
+        </h1>
+        <h1 class="text-green">
+            Green Heading
+        </h1>
+        <h1 class="text-brown">
+            Brown Heading
+        </h1>
+        <h1 class="text-yellow">
+            Yellow Heading
+        </h1>
+        <h1 class="text-purple">
+            Purple Heading
+        </h1>
+        <h1 class="text-black">
+            Black Heading
+        </h1>
+        <h1 class="text-white">
+            White Heading
+        </h1>
+
+        <textarea></textarea>
+    </body>
 </html>
