@@ -134,3 +134,15 @@ a:hover, a:focus {
 .noScroll {
     overflow: hidden;
 }
+
+.margin-left-small {
+    margin-left: 6px;
+}
+
+.margin-left-medium {
+    margin-left: 12px;
+}
+
+.margin-left-large {
+    margin-left: 24px;
+}
