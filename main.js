@@ -51,11 +51,6 @@ var switchClass = function(element, oldClass, newClass) {
 }
 
 var hasLocalStorage = !isEmpty(typeof(Storage));
-var useLocalStorage = false;
-
-if(hasLocalStorage) {
-    useLocalStorage = localStorage.getItem('acceptedLocalStorage');
-}
 
 var hideDialog = function(dialogId) {
     var dialog = document.getElementById(dialogId);
@@ -86,14 +81,15 @@ var showDialog = function(dialogId) {
 }
 
 var getValue = function(key) {
-    if(hasLocalStorage && useLocalStorage) {
+    if(hasLocalStorage) {
         return localStorage.getItem(key);
     }
 }
 
 var storeValue = function(key, value) {
-    if(hasLocalStorage && useLocalStorage) {
+    if(hasLocalStorage) {
         localStorage.setItem(key, value);
+        getValue(key);
     }
 }
 
@@ -114,21 +110,18 @@ var switchTheme = function(option) {
     }
 }
 
-var setUseLocalStorage = function(use) {
-    useLocalStorage = use;
-    if(use) {
-        storeValue('acceptedLocalStorage', true);
-    }
-    hideDialog('local-storage-dialog');
-}
-
 window.onload = function() {
-    if(getValue('acceptedLocalStorage')) {
-        hideDialog('local-storage-dialog');
-    } else {
-        showDialog('local-storage-dialog');
-    }
     if(!isEmpty(getValue('theme'))) {
         switchTheme(getValue('theme'));
+    }
+}
+
+customElements.define('dialog', Dialog);
+
+class Dialog extends HTMLElement {
+    constructor() {
+        super();
+
+
     }
 }
