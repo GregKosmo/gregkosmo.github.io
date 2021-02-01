@@ -76,11 +76,9 @@ function addColor() {
     hexColorInput.classList.add('fullWidth');
     hexColorInput.placeholder = 'Enter color value here (eg: #009900)';
     hexColorInput.maxLength = 7;
-    hexColorInput.onkeydown = () => {
-        exampleContainer.style.backgroundColor = '';
-    };
 
     hexColorInput.onkeyup = () => {
+        exampleContainer.style.backgroundColor = '';
         if (hexColorInput.value && hexColorInput.value.length === 7) {
             exampleContainer.style.backgroundColor = hexColorInput.value;
         }
