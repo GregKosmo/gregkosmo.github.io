@@ -1,0 +1,20 @@
+.deuteranopia {
+    filter: url('filters.svg#deuteranopia');
+}
+
+.protanopia {
+    filter: url('filters.svg#protanopia');
+}
+
+.tritanopia {
+    filter: url('filters.svg#tritanopia');
+}
+
+.palette-color {
+    box-sizing: border-box;
+}
+
+.palette-example {
+    height: 100px;
+    width: 100%;
+}

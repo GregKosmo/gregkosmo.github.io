@@ -1,0 +1,56 @@
+html {
+    height: 100%;
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+button {
+    font-size: 1rem;
+}
+
+.sodokuTable {
+    border: 2px solid #3a3a3a;
+}
+
+.sodokuTable div {
+    display: flex;
+}
+
+.sodokuTable div input {
+    height: 32px;
+    max-width: 32px;
+    min-width: 0;
+    border: 1px solid #3a3a3a;
+    text-align: center;
+    outline: none;
+    font-size: 1rem;
+}
+
+.sodokuTable div input:nth-child(3) {
+    border-right-width: 2px;
+}
+
+.sodokuTable div input:nth-child(6) {
+    border-right-width: 2px;
+}
+
+.sodokuTable div:nth-child(3) {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #3a3a3a;
+}
+
+.sodokuTable div:nth-child(6) {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #3a3a3a;
+}

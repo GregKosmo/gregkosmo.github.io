@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+    <head id="head">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="theme-color" content="#2F2009"/>
+        <meta name="Description" content="Personal website and portfolio of Gregory Kosmacek."/>
+        <title>Color Tester</title>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="main-unthemed.css?ver=2">
+        <link id="stylesheet" rel="stylesheet" type="text/css" media="screen" href="main-light.css?ver=1">
+        <link id="stylesheet" rel="stylesheet" type="text/css" media="screen" href="colortester.css">
+        <script src="main.js?ver=3"></script>
+        <link rel="manifest" href="manifest.json?ver=1"></link>
+        <link rel="icon" type="image/x-icon" href="./assets/images/logo_lg.png?ver=1">
+        <link rel="apple-touch-icon" sizes="640x400" href="./assets/images/logo_lg.png?ver=1">
+        <link rel="icon" type="image/png" sizes="640x400" href="./assets/images/logo_lg.png?ver=1">
+
+        <noscript>
+            <style type="text/css">
+                #no-javascript-hidden-radio:checked ~ #no-javascript-modal,
+                .javascript-needed {
+                    display: none;
+                }
+            </style>
+        </noscript>
+    </head>
+
+    <body>
+        <noscript>
+            <input type="radio" class="hidden" id="no-javascript-hidden-radio"/>
+            <div class="modal shown" id="no-javascript-modal">
+                <div class="dialog">
+                    <h1 class="centered">Hi! Thank you for checking out my website.</h1>
+                    <p class="centered">
+                        In order to take advantage of all the features while you're here, it is recommended you enable JavaScript.<br>
+                    </p>
+
+                    <div class="footer">
+                        <button id="no-javascript-close-button">
+                            <label for="no-javascript-hidden-radio">Close this message</label>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </noscript> 
+
+        <div class="theme-selector javascript-needed">
+            <button class="border-black background-black text-white" onclick="switchTheme('dark')">Dark</button>
+            <button class="border-white background-white text-black" onclick="switchTheme('light')">Light</button>
+        </div>
+        <a href="/">Home</a>
+
+        <h1>Color Tester</h1>
+        
+        <h2>Color Blindness Mode</h2>
+        <label>
+            <input id="none-color-blindness-radio" type="radio" name="colorBlindMode" checked onchange="removeColorBlindMode()">
+            None
+        </label>
+        <label>
+            <input type="radio" name="colorBlindMode" onchange="setColorBlindMode('deuteranopia')">
+            Deuteranopia (Common)
+        </label>
+        <label>
+            <input type="radio" name="colorBlindMode" onchange="setColorBlindMode('protanopia')">
+            Protanopia (Rare)
+        </label>
+        <label>
+            <input type="radio" name="colorBlindMode" onchange="setColorBlindMode('tritanopia')">
+            Tritanopia (Very Rare)
+        </label>
+
+        <h2>Palette</h2>
+        <div id="palette-container" class="column-grid-medium">
+            <button id="add-color-button" onclick="addColor()">
+                Add Color
+            </button>
+        </div>
+    </body>
+    <script src="colortester.js"></script>
+</html>

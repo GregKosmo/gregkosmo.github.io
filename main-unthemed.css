@@ -10,20 +10,12 @@ button {
     outline: none;
     height: 32px;
     box-sizing: border-box;
-    vertical-align: top;
     padding: 0px 8px;
     border-radius: 4px;
-    position: relative;
-    top: 0;
-    transition: top .1s;
-    margin: 2px;
+    margin: 0 2px;
 }
 
-button:hover {
-    top: -2px;
-}
-
-input {
+input:not([type="checkbox"]):not([type="radio"]) {
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     height: 32px;
@@ -33,6 +25,7 @@ input {
     padding: 0px 8px;
     border-radius: 4px;
     margin: 2px;
+    min-width: 0px;
 }
 
 select {
@@ -145,4 +138,34 @@ a:hover, a:focus {
 
 .margin-left-large {
     margin-left: 24px;
+}
+
+.padding-small {
+    padding: 6px;
+}
+
+.padding-medium {
+    padding: 12px;
+}
+
+.padding-large {
+    padding: 24px;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.column-grid-medium {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 4px;
 }

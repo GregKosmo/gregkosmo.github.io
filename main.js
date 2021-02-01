@@ -53,7 +53,7 @@ var switchClass = function(element, oldClass, newClass) {
 var hasLocalStorage = !isEmpty(typeof(Storage));
 
 var hideDialog = function(dialogId) {
-    var dialog = document.getElementById(dialogId);
+    var dialog = document.querySelector(`#${dialogId}`);
 
     if(!isEmpty(dialog)) {
         if(contains(dialog.getAttribute('class'), 'shown', 'hidden')) {
@@ -63,11 +63,11 @@ var hideDialog = function(dialogId) {
         }
     }
 
-    removeClass(document.getElementById('html'), 'noScroll');
+    removeClass(document.querySelector('#html'), 'noScroll');
 }
 
 var showDialog = function(dialogId) {
-    var dialog = document.getElementById(dialogId);
+    var dialog = document.querySelector(`#${dialogId}`);
 
     if(!isEmpty(dialog)) {
         if(contains(dialog.getAttribute('class'), 'shown', 'hidden')) {
@@ -77,7 +77,7 @@ var showDialog = function(dialogId) {
         }
     }
 
-    addClass(document.getElementById('html'), 'noScroll');
+    addClass(document.querySelector('#html'), 'noScroll');
 }
 
 var getValue = function(key) {
@@ -94,7 +94,7 @@ var storeValue = function(key, value) {
 }
 
 var switchTheme = function(option) {
-    var head = document.getElementById('head');
+    var head = document.querySelector('#head');
 
     var newStyle = document.createElement('link');
     newStyle.setAttribute('rel', 'stylesheet');
@@ -102,7 +102,7 @@ var switchTheme = function(option) {
     newStyle.setAttribute('type', 'text/css');
     newStyle.setAttribute('href', option === 'dark' ? 'main-dark.css' : 'main-light.css');
 
-    var oldStyle = document.getElementById('stylesheet');
+    var oldStyle = document.querySelector('#stylesheet');
 
     if(newStyle.getAttribute('href') !== oldStyle.getAttribute('href')) {
         head.replaceChild(newStyle, oldStyle);
@@ -113,15 +113,5 @@ var switchTheme = function(option) {
 window.onload = function() {
     if(!isEmpty(getValue('theme'))) {
         switchTheme(getValue('theme'));
-    }
-}
-
-customElements.define('dialog', Dialog);
-
-class Dialog extends HTMLElement {
-    constructor() {
-        super();
-
-
     }
 }

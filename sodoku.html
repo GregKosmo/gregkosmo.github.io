@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Sodoku</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='sodoku.css'>
+    </head>
+    
+    <body>
+        <form autocomplete="off">
+            <div class="sodokuTable">
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row1col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row1col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row1col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row1col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row1col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row1col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row1col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row1col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row1col9" maxlength="1"/>
+                </div>
+        
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row2col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row2col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row2col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row2col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row2col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row2col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row2col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row2col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row2col9" maxlength="1"/>
+                </div>
+        
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row3col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row3col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row3col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row3col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row3col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row3col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row3col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row3col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row3col9" maxlength="1"/>
+                </div>
+        
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row4col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row4col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row4col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row4col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row4col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row4col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row4col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row4col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row4col9" maxlength="1"/>
+                </div>
+        
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row5col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row5col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row5col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row5col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row5col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row5col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row5col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row5col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row5col9" maxlength="1"/>
+                </div>
+        
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row6col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row6col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row6col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row6col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row6col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row6col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row6col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row6col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row6col9" maxlength="1"/>
+                </div>
+        
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row7col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row7col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row7col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row7col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row7col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row7col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row7col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row7col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row7col9" maxlength="1"/>
+                </div>
+        
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row8col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row8col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row8col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row8col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row8col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row8col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row8col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row8col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row8col9" maxlength="1"/>
+                </div>
+        
+                <div>
+                    <input onchange="updateMap(this)" type="tel" id="row9col1" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row9col2" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row9col3" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row9col4" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row9col5" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row9col6" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row9col7" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row9col8" maxlength="1"/>
+                    <input onchange="updateMap(this)" type="tel" id="row9col9" maxlength="1"/>
+                </div>
+            </div>
+        </form>
+    </body>
+
+    <script src='sodoku.js'></script>
+</html>
