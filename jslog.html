@@ -7,11 +7,10 @@
 
         <meta name="theme-color" content="#2F2009"/>
         <meta name="Description" content="Personal website and portfolio of Gregory Kosmacek."/>
-        <title>Color Tester</title>
+        <title>Finishing My Projects</title>
 
         <link rel="stylesheet" type="text/css" media="screen" href="main-unthemed.css?ver=2">
         <link id="stylesheet" rel="stylesheet" type="text/css" media="screen" href="main-light.css?ver=1">
-        <link id="stylesheet" rel="stylesheet" type="text/css" media="screen" href="colortester.css">
         <script src="main.js?ver=3"></script>
         <link rel="manifest" href="manifest.json?ver=1"></link>
         <link rel="icon" type="image/x-icon" href="./assets/images/logo_lg.png?ver=1">
@@ -54,33 +53,29 @@
         <a href="/">Home</a>
 
         <div class="main">
-        <h1>Color Tester</h1>
-        
-        <h2>Color Blindness Mode</h2>
-        <label>
-            <input id="none-color-blindness-radio" type="radio" name="colorBlindMode" checked onchange="removeColorBlindMode()">
-            None
-        </label>
-        <label>
-            <input type="radio" name="colorBlindMode" onchange="setColorBlindMode('deuteranopia')">
-            Deuteranopia (Common)
-        </label>
-        <label>
-            <input type="radio" name="colorBlindMode" onchange="setColorBlindMode('protanopia')">
-            Protanopia (Rare)
-        </label>
-        <label>
-            <input type="radio" name="colorBlindMode" onchange="setColorBlindMode('tritanopia')">
-            Tritanopia (Very Rare)
-        </label>
-
-        <h2>Palette</h2>
-        <div id="palette-container" class="column-grid-medium">
-            <button id="add-color-button" onclick="addColor()">
-                Add Color
-            </button>
+        <h1>Js Log</h1>
+        <div>
+          <b>09/24/2023</b>
+          <br/><br/>
+          There's a reason this is the first listed project on my home page, it's the closest thing to a complete project I have
+          (and one I actually use somewhat frequently). Domain: <a target="_blank" rel="noopener noreferrer" href="https://jslog.dev">jslog.dev</a>
+          <h2>Background</h2>
+          <p>
+            I created this project back in 2018 or 2019 at my first job, I wanted a quick way to test the behavior of JavaScript
+            and share it with my coworkers. This was during the time of my obsession with PWAs and client-side offline apps, a
+            theme you may notice through the rest of the projects. It started out as a textarea and two buttons but has
+            gone through a few iterations over the years as I've added styling, more features, etc.
+          </p>
+          <p>
+            In its current state, Firefox does not play well with the input event capturing/overriding I'm doing as evidenced
+            by the GitHub issues I have open. It also takes the concept of shifting responsibility to the client to a whole
+            new level. Not only does all the code run on the client, but any shared code snippet's storage is shifted to the client too.
+            It's the ultimate distributed database, infinite redundancy. Let Apple store the snippet in their iMessage database,
+            let Microsoft store it in a Teams thread, let any website who uses the embed feature store it in the contents of their webpage.
+            All through a revolutionary technology called URL and base64 encoding the contents of a textarea and appending it to the URL.
+            Gross? Sure. Does it work? Yeah. Keep your snippets short, people.
+          </p>
         </div>
       </div>
     </body>
-    <script src="colortester.js?ver=2"></script>
 </html>
