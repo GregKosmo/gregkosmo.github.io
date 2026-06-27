@@ -64,13 +64,18 @@ label[for] {
     cursor: pointer;
 }
 
+ul {
+    margin-top: 0px;
+}
+
 a {
     text-decoration: none;
     color: rgb(40, 138, 230);
     outline: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
     color: rgb(148, 148, 148);
     text-decoration: underline;
 }
@@ -106,12 +111,6 @@ a:hover, a:focus {
     text-align: center;
 }
 
-.colors span {
-    display: inline-block;
-    width: 56px;
-    height: 56px;
-}
-
 .theme-selector {
     position: fixed;
     top: 8px;
@@ -140,6 +139,18 @@ a:hover, a:focus {
 
 .margin-left-large {
     margin-left: 24px;
+}
+
+.margin-right-small {
+    margin-right: 6px;
+}
+
+.margin-right-medium {
+    margin-right: 12px;
+}
+
+.margin-right-large {
+    margin-right: 24px;
 }
 
 .padding-small {
@@ -173,6 +184,6 @@ a:hover, a:focus {
 }
 
 .main {
-  max-width: 900px;
-  margin: 0 auto;
+    max-width: 900px;
+    margin: 0 auto;
 }
