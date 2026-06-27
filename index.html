@@ -1,234 +1,259 @@
 <!DOCTYPE html>
 <html lang="en" id="html">
-    <head id="head">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="theme-color" content="#2F2009"/>
-        <meta name="Description" content="Personal website and portfolio of Gregory Kosmacek."/>
-        <title>Gregory Kosmacek</title>
+<head id="head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" type="text/css" media="screen" href="main-unthemed.css?ver=2">
-        <link id="stylesheet" rel="stylesheet" type="text/css" media="screen" href="main-light.css?ver=1">
-        <script src="main.js?ver=3"></script>
-        <link rel="manifest" href="manifest.json?ver=1"></link>
-        <link rel="icon" type="image/x-icon" href="./assets/images/logo_lg.png?ver=1">
-        <link rel="apple-touch-icon" sizes="640x400" href="./assets/images/logo_lg.png?ver=1">
-        <link rel="icon" type="image/png" sizes="640x400" href="./assets/images/logo_lg.png?ver=1">
+    <meta name="theme-color" content="#2F2009" />
+    <meta name="Description" content="Personal website and portfolio of Gregory Kosmacek." />
+    <title>Gregory Kosmacek</title>
 
-        <noscript>
-            <style type="text/css">
-                #no-javascript-hidden-radio:checked ~ #no-javascript-modal,
-                .javascript-needed {
-                    display: none;
-                }
-            </style>
-        </noscript>
-    </head>
+    <link rel="stylesheet" type="text/css" media="screen" href="main-unthemed.css?ver=3">
+    <link id="stylesheet" rel="stylesheet" type="text/css" media="screen" href="main-light.css?ver=2">
+    <script src="main.js?ver=3"></script>
+    <link rel="manifest" href="manifest.json?ver=1">
+    </link>
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo_lg.png?ver=1">
+    <link rel="apple-touch-icon" sizes="640x400" href="./assets/images/logo_lg.png?ver=1">
+    <link rel="icon" type="image/png" sizes="640x400" href="./assets/images/logo_lg.png?ver=1">
 
-    <body>
-        <noscript>
-            <input type="radio" class="hidden" id="no-javascript-hidden-radio"/>
-            <div class="modal shown" id="no-javascript-modal">
-                <div class="dialog">
-                    <h2 class="centered">Hi! Thank you for checking out my website.</h2>
-                    <p class="centered">
-                        In order to take advantage of all the features while you're here, it is recommended you enable JavaScript.<br>
-                    </p>
+    <noscript>
+        <style type="text/css">
+            #no-javascript-hidden-radio:checked~#no-javascript-modal,
+            .javascript-needed {
+                display: none;
+            }
+        </style>
+    </noscript>
+</head>
 
-                    <div class="footer">
-                        <button id="no-javascript-close-button">
-                            <label for="no-javascript-hidden-radio">Close this message</label>
-                        </button>
-                    </div>
+<body>
+    <noscript>
+        <input type="radio" class="hidden" id="no-javascript-hidden-radio" />
+        <div class="modal shown" id="no-javascript-modal">
+            <div class="dialog">
+                <h2 class="centered">Hi! Thank you for checking out my website.</h2>
+                <p class="centered">
+                    In order to take advantage of all the features while you're here, it is recommended you enable
+                    JavaScript.<br>
+                </p>
+
+                <div class="footer">
+                    <button id="no-javascript-close-button">
+                        <label for="no-javascript-hidden-radio">Close this message</label>
+                    </button>
                 </div>
             </div>
-        </noscript> 
+        </div>
+    </noscript>
 
-        <div class="theme-selector javascript-needed">
-            <button class="border-black background-black text-white" onclick="switchTheme('dark')">Dark</button>
-            <button class="border-white background-white text-black" onclick="switchTheme('light')">Light</button>
+    <div class="theme-selector javascript-needed">
+        <button class="border-black background-black text-white" onclick="switchTheme('dark')">Dark</button>
+        <button class="border-white background-white text-black" onclick="switchTheme('light')">Light</button>
+    </div>
+
+    <div class="main">
+        <h1>Gregory Kosmacek</h1>
+        <div>
+            A builder.
         </div>
 
-        <div class="main">
-            <h1>Gregory Kosmacek</h1>
-            <div>
-              A builder.
+        <h2>Projects</h2>
+        <div class="margin-left-medium">
+            <a target="_blank" rel="noopener noreferrer" href="https://jslog.dev">Js Log</a>
+            <ul>
+                <li>Simple PWA javascript logging application with mobile support</li>
+                <li><a target="_blank" rel="noopener noreferrer"
+                        href="https://github.com/GregKosmo/jslog.github.io">GitHub</a></li>
+            </ul>
+            <a href="colortester.html">Color Tester</a>
+            <ul>
+                <li>HTML color palette tester with hex/rgb conversion & color blindness check</li>
+            </ul>
+            <a target="_blank" rel="noopener noreferrer" href="https://staygreenvalley.com">Green Valley Resort</a>
+            <ul>
+                <li>Family fishing resort webpage, includes online reservation and payments</li>
+            </ul>
+            <a href="projecttruck.html">Project Truck</a>
+            <ul>
+                <li>6.0 LS swapped Chevy Colorado build</li>
+            </ul>
+            <a href="projecthouse.html">Project House</a>
+            <ul>
+                <li>Cabin restoration in Northern Minnesota</li>
+            </ul>
+        </div>
+
+        <h2>Articles</h2>
+
+        <h2>Resume</h2>
+        <div class="margin-left-medium background-white border-black">
+            <div class="centered">
+                <h1>Gregory Kosmacek</h1>
+                402-860-2132 -
+                <a href="mailto:gkosmacek@gmail.com">gkosmacek@gmail.com</a> -
+                <a target="_blank" rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/gregory-kosmacek/">LinkedIn</a> -
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/GregKosmo">GitHub</a>
             </div>
-
-            <h2>Projects</h2>
-            <div class="margin-left-medium">
-                <a target="_blank" rel="noopener noreferrer" href="https://jslog.dev">Js Log</a>
-                <ul>
-                    <li>Simple PWA javascript logging application with mobile support</li>
-                    <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/GregKosmo/jslog.github.io">GitHub</a></li>
-                </ul>
-                <a href="colortester.html">Color Tester</a>
-                <ul>
-                    <li>HTML color palette tester with hex/rgb conversion & color blindness check</li>
-                </ul>
-                <a target="_blank" rel="noopener noreferrer" href="https://staygreenvalley.com">Green Valley Resort</a>
-                <ul>
-                    <li>Family fishing resort webpage, includes online reservation and payments</li>
-                </ul>
-                <a href="projecttruck.html">Project Truck</a>
-                <ul>
-                    <li>6.0 LS swapped Chevy Colorado build</li>
-                </ul>
-                <a href="projecthouse.html">Project House</a>
-                <ul>
-                    <li>Cabin restoration in Northern Minnesota</li>
-                </ul>
-            </div>
-
-            <h2>Articles</h2>
-
-            <h2>Resume</h2>
-            <div class="margin-left-medium background-white border-black">
-                <div class="centered">
-                    <h1>Gregory Kosmacek</h1>
-                    402-860-2132 - 
-                    <a href="mailto:gkosmacek@gmail.com">gkosmacek@gmail.com</a> - 
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/gregory-kosmacek/">LinkedIn</a> - 
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/GregKosmo">GitHub</a>
+            <br />
+            <div class="margin-left-large margin-right-large">
+                <b>SUMMARY</b>
+                <div class="margin-left-large">
+                    Senior software engineer with 9+ years of experience designing and building cloud-native,
+                    event-based enterprise web applications.
+                    Proven record delivering large-scale performance improvements, reshaping workflows through internal
+                    tooling, leading technical initiatives,
+                    and building AI-centric applications.
                 </div>
-                <br/>
-                <div class="margin-left-large margin-right-large">
-                    <b>SUMMARY</b>
-                    <div class="margin-left-large">
-                        Senior software engineer with 9+ years of experience designing and building cloud-native, event-based enterprise web applications. 
-                        Proven record delivering large-scale performance improvements, reshaping workflows through internal tooling, leading technical initiatives, 
-                        and building AI-centric applications.
-                    </div>
-                    <br/>
-                    <b>SKILLS</b>
-                    <ul>
-                        <li>
-                            <b><i>
+                <br />
+                <b>SKILLS</b>
+                <ul>
+                    <li>
+                        <b><i>
                                 Cloud & Platform
                             </i></b>
-                            <br/>
-                            AWS, Docker, GitHub Actions
-                        </li>
-                        <li>
-                            <b><i>
+                        <br />
+                        AWS, Docker, GitHub Actions
+                    </li>
+                    <li>
+                        <b><i>
                                 Backend
                             </i></b>
-                            <br/>
-                            Node.js, TypeScript, Python, SQL/NoSQL
-                        </li>
-                        <li>
-                            <b><i>
+                        <br />
+                        Node.js, TypeScript, Python, SQL/NoSQL
+                    </li>
+                    <li>
+                        <b><i>
                                 Frontend
                             </i></b>
-                            <br/>
-                            Angular, Vue, React
-                        </li>
-                        <li>
-                            <b><i>
+                        <br />
+                        Angular, Vue, React
+                    </li>
+                    <li>
+                        <b><i>
                                 Testing & Observability
                             </i></b>
-                            <br/>
-                            Jest, Pytest, Datadog, MLflow
-                        </li>
-                        <li>
-                            <b><i>
+                        <br />
+                        Jest, Pytest, Datadog, MLflow
+                    </li>
+                    <li>
+                        <b><i>
                                 Leadership
                             </i></b>
-                            <br/>
-                            Tech Lead, Inverviewing, Mentoring, Security Champion
-                        </li>
-                    </ul>
-                    <b>EXPERIENCE</b>
-                    <ul>
-                        <li>
-                            <b>Full-Stack Developer</b>
-                            <ul>
-                                <li>
-                                    Nelnet, October 2021 - Present
-                                </li>
-                                <li>
-                                    Implement an automated LLM test suite for AI products using MLflow and Pytest as part of the data science team
-                                </li>
-                                <li>
-                                    Architect LLM resource migration and model evaluation from Azure to AWS Bedrock
-                                </li>
-                                <li>
-                                    Design and implement event-driven microservices supporting a large-scale SaaS loan origination and servicing platform supporting enterprise customers
-                                </li>
-                                <li>
-                                    Research, architect, and implement a 20x performance improvement in a batch process to support system scaling goals
-                                </li>
-                                <li>
-                                    Reduce local development environment spin-up time from 20 minutes to 1 minute by leveraging efficiencies in Docker Compose definition and management
-                                </li>
-                                <li>
-                                    Build internal Nuxt.js platform to automate production loan issue research, replacing hundreds of ad hoc SQL queries with a single interface which detects issues and reports them to developers
-                                </li>
-                                <li>
-                                    Decrease organization-wide on-call burden by automating laborious manual SQS DLQ triage process with a one-minute script
-                                </li>
-                                <li>
-                                    Drive adoption of platform tooling via org-wide presentations and engagements with platform teams and senior management. Along with eventual contributions from others, helped to reduce non-feature related tasks from ~60% of developer time to ~20%
-                                </li>
-                                <li>
-                                    Assume tech lead responsibilities for the team, interview and mentor new developers, and work with product team to estimate and architect upcoming work
-                                </li>
-                                <li>
-                                    Reduce production outdated Node.js runtimes from 33 to zero by serving as liaison between security and product/development teams as Security Champion
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <b>Web Developer</b>
-                            <ul>
-                                <li>
-                                    FEDITC, March 2021 - October 2021
-                                </li>
-                                <li>
-                                    Owned development of a Nuxt.js interface for a third-party NGA app store, IGAPP 
-                                </li>
-                                <li>
-                                    Enhanced an API which interacts with a MySQL database and AWS resources through the AWS SDK
-                                </li>
-                                <li>
-                                    Implemented multi-factor authentication using Keycloak
-                                </li>
-                                <li>
-                                    Created Docker images and Docker Compose files for use in GitLab CI/CD deployments and local development
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <b>Programmer/Analyst 2</b>
-                            <ul>
-                                <li>
-                                    Duncan Aviation, June 2017 - March 2021
-                                </li>
-                                <li>
-                                    Developed a suite of private aircraft project management tools, including client-facing web interfaces and internal Java applications
-                                </li>
-                                <li>
-                                    Aided in a technology stack migration from Java and JSF to Node.js and Angular
-                                </li>
-                                <li>
-                                    Assumed project management responsibilities on multiple projects; managed developers, gathered requirements, proposed solutions, developed training plans, and coordinated release of finished products
-                                </li>
-                                <li>
-                                    Created and maintained a user interface design system using Adobe XD and SASS
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                        <br />
+                        Tech Lead, Inverviewing, Mentoring, Security Champion
+                    </li>
+                </ul>
+                <b>EXPERIENCE</b>
+                <ul>
+                    <li>
+                        <b>Full-Stack Developer</b>
+                        <ul>
+                            <li>
+                                Nelnet, October 2021 - Present
+                            </li>
+                            <li>
+                                Implement an automated LLM test suite for AI products using MLflow and Pytest as part of
+                                the data science team
+                            </li>
+                            <li>
+                                Architect LLM resource migration and model evaluation from Azure to AWS Bedrock
+                            </li>
+                            <li>
+                                Design and implement event-driven microservices supporting a large-scale SaaS loan
+                                origination and servicing platform supporting enterprise customers
+                            </li>
+                            <li>
+                                Research, architect, and implement a 20x performance improvement in a batch process to
+                                support system scaling goals
+                            </li>
+                            <li>
+                                Reduce local development environment spin-up time from 20 minutes to 1 minute by
+                                leveraging efficiencies in Docker Compose definition and management
+                            </li>
+                            <li>
+                                Build internal Nuxt.js platform to automate production loan issue research, replacing
+                                hundreds of ad hoc SQL queries with a single interface which detects issues and reports
+                                them to developers
+                            </li>
+                            <li>
+                                Decrease organization-wide on-call burden by automating laborious manual SQS DLQ triage
+                                process with a one-minute script
+                            </li>
+                            <li>
+                                Drive adoption of platform tooling via org-wide presentations and engagements with
+                                platform teams and senior management. Along with eventual contributions from others,
+                                helped to reduce non-feature related tasks from ~60% of developer time to ~20%
+                            </li>
+                            <li>
+                                Assume tech lead responsibilities for the team, interview and mentor new developers, and
+                                work with product team to estimate and architect upcoming work
+                            </li>
+                            <li>
+                                Reduce production outdated Node.js runtimes from 33 to zero by serving as liaison
+                                between security and product/development teams as Security Champion
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Web Developer</b>
+                        <ul>
+                            <li>
+                                FEDITC, March 2021 - October 2021
+                            </li>
+                            <li>
+                                Owned development of a Nuxt.js interface for a third-party NGA app store, IGAPP
+                            </li>
+                            <li>
+                                Enhanced an API which interacts with a MySQL database and AWS resources through the AWS
+                                SDK
+                            </li>
+                            <li>
+                                Implemented multi-factor authentication using Keycloak
+                            </li>
+                            <li>
+                                Created Docker images and Docker Compose files for use in GitLab CI/CD deployments and
+                                local development
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Programmer/Analyst 2</b>
+                        <ul>
+                            <li>
+                                Duncan Aviation, June 2017 - March 2021
+                            </li>
+                            <li>
+                                Developed a suite of private aircraft project management tools, including client-facing
+                                web interfaces and internal Java applications
+                            </li>
+                            <li>
+                                Aided in a technology stack migration from Java and JSF to Node.js and Angular
+                            </li>
+                            <li>
+                                Assumed project management responsibilities on multiple projects; managed developers,
+                                gathered requirements, proposed solutions, developed training plans, and coordinated
+                                release of finished products
+                            </li>
+                            <li>
+                                Created and maintained a user interface design system using Adobe XD and SASS
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-    </body>
-    
-    <footer>
-        <div class="centered">
-            <p>Gregory Kosmacek &copy; 1997. All rights reserved. <a href="buildingsimply.html">Why does your website look like this?</a></p>
-        </div>
-    </footer>
+    </div>
+</body>
+
+<footer>
+    <div class="centered">
+        <p>Gregory Kosmacek &copy; 1997. All rights reserved. <a href="buildingsimply.html">Why does your website look
+                like this?</a></p>
+    </div>
+</footer>
+
 </html>
