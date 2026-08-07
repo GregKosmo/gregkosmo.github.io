@@ -153,6 +153,30 @@ a:focus {
     margin-right: 24px;
 }
 
+.margin-bottom-small {
+    margin-bottom: 6px;
+}
+
+.margin-bottom-medium {
+    margin-bottom: 12px;
+}
+
+.margin-bottom-large {
+    margin-bottom: 24px;
+}
+
+.margin-top-small {
+    margin-top: 6px;
+}
+
+.margin-top-medium {
+    margin-top: 12px;
+}
+
+.margin-top-large {
+    margin-top: 24px;
+}
+
 .padding-small {
     padding: 6px;
 }
@@ -175,6 +199,10 @@ a:focus {
 
 .display-flex {
     display: flex;
+}
+
+.display-inline {
+    display: inline;
 }
 
 .column-grid-medium {
