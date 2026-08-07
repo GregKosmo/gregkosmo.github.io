@@ -215,3 +215,9 @@ a:focus {
     max-width: 900px;
     margin: 0 auto;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
