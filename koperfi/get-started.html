@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script src="decimal.js"></script>
+    </head>
+    <body>
+        <a href="koperfi.html">Home</a>
+        <h1>Koperfi</h1>
+        
+        <h2>Income streams</h2>
+        <div id="income-streams">
+            <div id="income-stream">
+                <label>Description: <input onblur="updateConfig()"/></label>
+                <label>Amount: <input onblur="updateConfig()"/></label>
+                <label>Frequency (days): <input onblur="updateConfig()"/></label>
+                <button onclick="removeIncomeStream(this)">Remove</button>
+            </div>
+        </div>
+        <button onclick="addIncomeStream()">Add</button>
+
+        <h2>Fixed expenses</h2>
+        <div id="fixed-expenses">
+            <div id="fixed-expense">
+                <label>Description: <input onblur="updateConfig()"/></label>
+                <label>Amount (yearly): <input onblur="updateConfig()"/></label>
+                <button onclick="removeFixedExpense(this)">Remove</button>
+            </div>
+        </div>
+        <button onclick="addFixedExpense()">Add</button>
+
+        <h2>Fluctuating expenses</h2>
+        <div id="fluctuating-expenses">
+            <div id="fluctuating-expense">
+                <label>Description: <input onblur="updateConfig()"/></label>
+                <label>Amount (yearly): <input onblur="updateConfig()"/></label>
+                <button onclick="removeFluctuatingExpense(this)">Remove</button>
+            </div>
+        </div>
+        <button onclick="addFluctuatingExpense()">Add</button>
+
+        <h2>Expected spending</h2>
+        <div id="expected-spending-items">
+            <div id="expected-spending-item">
+                <label>Category: <input onblur="updateConfig()"/></label>
+                <label>Date: <input type="date" onblur="updateConfig()"/></label>
+                <label>Amount: <input onblur="updateConfig()"/></label>
+                <label>Description: <input onblur="updateConfig()"/></label>
+                <button onclick="removeExpectedSpendingItem(this)">Remove</button>
+            </div>
+        </div>
+        <button onclick="addExpectedSpendingItem()">Add</button>
+
+        <br/><br/>
+        <a href="sinking-fund.html">Next</a>
+    </body>
+    <script src="get-started.js"></script>
+</html>

@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script src="decimal.js"></script>
+</head>
+
+<body>
+    <a href="koperfi.html">Home</a>
+    <a href="get-started.html">Config</a>
+    <h1>Koperfi</h1>
+    <label>Amount: <input id="new-amount" /></label>
+    <label>Date: <input type="date" id="new-date" /></label>
+    <label>Category:
+        <select id="amount-type">
+        </select>
+    </label>
+    <label>Description:<input id="new-description"/></label>
+    <button type="button" onclick="calculateNewAmount()">What will it do?</button>
+    <button type="button" onclick="saveNewAmount()">Save</button>
+    <table>
+        <thead>
+            <tr id="table-heading">
+                <td>
+                    Date
+                </td>
+                <td>
+                    Total
+                </td>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+</body>
+<script src="sinking-fund.js"></script>
+
+</html>
