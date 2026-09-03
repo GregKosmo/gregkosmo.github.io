@@ -211,7 +211,7 @@ function calculate() {
         category.textContent = expense.category;
         description.textContent = expense.description;
         amount.textContent = usdFormatter.format(expense.amount.toNumber());
-        row.append(date, category, description, amount);
+        row.append(date, amount, category, description);
         upcomingExpenses.appendChild(row);
     }
 }
@@ -221,7 +221,7 @@ function calculateNewAmount() {
     if (!EXPECTED_SPENDING[newAmountTypeInput.value]) {
         EXPECTED_SPENDING[newAmountTypeInput.value] = []
     }
-    EXPECTED_SPENDING[newAmountTypeInput.value].push([new Date(newDateInput.value), new Decimal(newAmountInput.value)]);
+    EXPECTED_SPENDING[newAmountTypeInput.value].push([new Date(newDateInput.value), new Decimal(newAmountInput.value), newDescriptionInput.value]);
     calculate();
 }
 
