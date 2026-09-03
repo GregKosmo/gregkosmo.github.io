@@ -35,8 +35,6 @@ for (const category of Object.values(CONFIG.CATEGORIES)) {
 
 function calculate() {
     const AMORTIZATION = {}
-    const TOTAL_SPENDING = Object.values(YEARLY_ALLOCATION).reduce((total, curr) => total.add(curr), new Decimal(0));
-    const TWO_WEEK_CONTRIBUTION = TOTAL_SPENDING.div(26);
     tableBody.replaceChildren();
     for (const category of Object.values(CONFIG.CATEGORIES)) {
         AMORTIZATION[category] = []
@@ -126,13 +124,6 @@ function calculate() {
         eachDateIncrease.push([date, change]);
     }
 
-    const today = new Date();
-    const allocations = Object.entries(AMORTIZATION).reduce((allocations, [category, schedule]) => {
-        const currentAllocation = schedule.find(([date]) => date <= today);
-        allocations[category] = currentAllocation ? currentAllocation[1] : new Decimal(0);
-        return allocations;
-    }, {});
-
     const usdFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
@@ -174,10 +165,11 @@ function saveNewAmount() {
         description: newDescriptionInput.value
     })
     localStorage.setItem('koperfi-config', JSON.stringify(koperfiConfig))
-    calculate();
+    calculateNewAmount();
     newAmountInput.value = null;
     newDateInput.value = null;
     newAmountTypeInput.value = null;
+    newDescriptionInput.value = null;
 }
 
 calculate();
