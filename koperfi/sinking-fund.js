@@ -200,7 +200,7 @@ function calculate() {
         currentBalanceBody.appendChild(tdBody);
     }
 
-    for (const expense of currentWindowExpenses) {
+    for (const expense of currentWindowExpenses.sort((a, b) => a.date - b.date)) {
         const row = document.createElement('tr');
         const date = document.createElement('td');
         const category = document.createElement('td');
