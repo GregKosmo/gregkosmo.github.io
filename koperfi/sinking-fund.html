@@ -8,7 +8,7 @@
     <a href="koperfi.html">Home</a>
     <a href="get-started.html">Config</a>
     <h1>Koperfi</h1>
-    <label>Amount: <input id="new-amount" /></label>
+    <label>Amount: <input id="new-amount" type="number" /></label>
     <label>Date: <input type="date" id="new-date" /></label>
     <label>Category:
         <select id="amount-type">
@@ -17,6 +17,7 @@
     <label>Description:<input id="new-description"/></label>
     <button type="button" onclick="calculateNewAmount()">What will it do?</button>
     <button type="button" onclick="saveNewAmount()">Save</button>
+    <button type="button" onclick="refresh()">Clear</button>
     <table>
         <thead>
             <tr id="table-heading">
@@ -31,7 +32,39 @@
         <tbody id="table-body">
         </tbody>
     </table>
+    <h2>Current Balance</h2>
+    <table>
+        <thead>
+            <tr id="current-balance-head">
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="current-balance-body"></tr>
+        </tbody>
+    </table>
+    <h2>Upcoming Expenses</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Date
+                </td>
+                <td>
+                    Amount
+                </td>
+                <td>
+                    Category
+                </td>
+                <td>
+                    Description
+                </td>
+            </tr>
+        </thead>
+        <tbody id="upcoming-expenses">
+
+        </tbody>
+    </table>
 </body>
-<script src="sinking-fund.js?ver=2"></script>
+<script src="sinking-fund.js?ver=3"></script>
 
 </html>

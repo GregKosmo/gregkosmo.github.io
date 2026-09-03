@@ -5,6 +5,9 @@ const newDescriptionInput = document.querySelector('#new-description');
 const tableHeading = document.querySelector('#table-heading');
 const tableBody = document.querySelector('#table-body');
 const koperfiConfig = JSON.parse(localStorage.getItem('koperfi-config') || '{}');
+const currentBalanceHead = document.querySelector('#current-balance-head');
+const currentBalanceBody = document.querySelector('#current-balance-body');
+const upcomingExpenses = document.querySelector('#upcoming-expenses');
 
 const CONFIG = {
     START_DATE: new Date(2026, 0, 2),
@@ -36,6 +39,9 @@ for (const category of Object.values(CONFIG.CATEGORIES)) {
 function calculate() {
     const AMORTIZATION = {}
     tableBody.replaceChildren();
+    currentBalanceHead.replaceChildren();
+    currentBalanceBody.replaceChildren();
+    upcomingExpenses.replaceChildren();
     for (const category of Object.values(CONFIG.CATEGORIES)) {
         AMORTIZATION[category] = []
         let currentDate = new Date(CONFIG.START_DATE);
@@ -146,6 +152,68 @@ function calculate() {
         }
         tableBody.appendChild(row);
     }
+
+    const today = new Date();
+    const currentWindowStartingAmounts = {};
+    const currentWindowExpenses = [];
+    const currentWindowEndingAmounts = {};
+
+    for (let i = 0; i < eachDateTotal.length; i++) {
+        const [date] = eachDateTotal[i];
+        const [nextDate] = eachDateTotal[i + 1] || [];
+        if (date <= today && (!nextDate || nextDate > today)) {
+            currentWindowStartingAmounts['Total'] = eachDateTotal[i][1];
+            for (const key in AMORTIZATION) {
+                const [, amount] = AMORTIZATION[key][i];
+                currentWindowStartingAmounts[key] = amount;
+            }
+            for (const key in EXPECTED_SPENDING) {
+                for (const expense of EXPECTED_SPENDING[key]) {
+                    const [expenseDate, expenseAmount, expenseDescription] = expense;
+                    if (expenseDate >= date && (!nextDate || expenseDate < nextDate)) {
+                        currentWindowExpenses.push({
+                            category: key,
+                            date: expenseDate,
+                            amount: expenseAmount,
+                            description: expenseDescription
+                        });
+                    }
+                }
+            }
+            for (const key in currentWindowStartingAmounts) {
+                const startingAmount = currentWindowStartingAmounts[key];
+                const expenseAmount = currentWindowExpenses.filter(expense => expense.category === key || key === 'Total').reduce((total, expense) => total.add(expense.amount), new Decimal(0));
+                const endingAmount = startingAmount.sub(expenseAmount);
+                currentWindowEndingAmounts[key] = endingAmount;
+            }
+            break;
+        }
+    }
+
+    for (const key in currentWindowEndingAmounts) {
+        const amount = currentWindowEndingAmounts[key];
+        const tdHead = document.createElement('td');
+        const tdBody = document.createElement('td');
+        tdHead.textContent = key;
+        tdBody.textContent = usdFormatter.format(amount.toNumber());
+        currentBalanceHead.appendChild(tdHead);
+        currentBalanceBody.appendChild(tdBody);
+    }
+
+    for (const expense of currentWindowExpenses) {
+        const row = document.createElement('tr');
+        const date = document.createElement('td');
+        const category = document.createElement('td');
+        const description = document.createElement('td');
+        const amount = document.createElement('td');
+
+        date.textContent = expense.date.toLocaleDateString();
+        category.textContent = expense.category;
+        description.textContent = expense.description;
+        amount.textContent = usdFormatter.format(expense.amount.toNumber());
+        row.append(date, category, description, amount);
+        upcomingExpenses.appendChild(row);
+    }
 }
 
 
@@ -170,6 +238,10 @@ function saveNewAmount() {
     newDateInput.value = null;
     newAmountTypeInput.value = null;
     newDescriptionInput.value = null;
+}
+
+function refresh() {
+    location.reload();
 }
 
 calculate();
