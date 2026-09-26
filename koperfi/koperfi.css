@@ -136,7 +136,7 @@ select {
   background: var(--color-surface);
   color: var(--color-ink);
   width: 100%;
-  height: 38px;
+  max-height: 38px;
 }
 
 input:focus,
