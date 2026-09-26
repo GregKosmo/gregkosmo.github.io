@@ -8,6 +8,10 @@ const koperfiConfig = JSON.parse(localStorage.getItem('koperfi-config') || '{}')
 const currentBalanceHead = document.querySelector('#current-balance-head');
 const currentBalanceBody = document.querySelector('#current-balance-body');
 const upcomingExpenses = document.querySelector('#upcoming-expenses');
+const asOfDateInput = document.querySelector('#as-of-date');
+
+const today = new Date();
+asOfDateInput.valueAsDate = today;
 
 const CONFIG = {
     START_DATE: new Date(2026, 0, 2),
@@ -153,7 +157,6 @@ function calculate() {
         tableBody.appendChild(row);
     }
 
-    const today = new Date();
     const currentWindowStartingAmounts = {};
     const currentWindowExpenses = [];
     const currentWindowEndingAmounts = {};
@@ -161,7 +164,7 @@ function calculate() {
     for (let i = 0; i < eachDateTotal.length; i++) {
         const [date] = eachDateTotal[i];
         const [nextDate] = eachDateTotal[i + 1] || [];
-        if (date <= today && (!nextDate || nextDate > today)) {
+        if (date <= new Date(asOfDateInput.value) && (!nextDate || nextDate > new Date(asOfDateInput.value))) {
             currentWindowStartingAmounts['Total'] = eachDateTotal[i][1];
             for (const key in AMORTIZATION) {
                 const [, amount] = AMORTIZATION[key][i];
