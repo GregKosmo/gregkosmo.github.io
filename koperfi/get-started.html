@@ -1,56 +1,65 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="koperfi.css" />
         <script src="decimal.js"></script>
     </head>
     <body>
-        <a href="koperfi.html">Home</a>
+        <nav class="nav"><a href="koperfi.html">Home</a></nav>
         <h1>Koperfi</h1>
-        
-        <h2>Income streams</h2>
-        <div id="income-streams">
-            <div id="income-stream">
-                <label>Description: <input onblur="updateConfig()"/></label>
-                <label>Amount: <input onblur="updateConfig()"/></label>
-                <label>Frequency (days): <input onblur="updateConfig()"/></label>
-                <button onclick="removeIncomeStream(this)">Remove</button>
-            </div>
-        </div>
-        <button onclick="addIncomeStream()">Add</button>
 
-        <h2>Fixed expenses</h2>
-        <div id="fixed-expenses">
-            <div id="fixed-expense">
-                <label>Description: <input onblur="updateConfig()"/></label>
-                <label>Amount (yearly): <input onblur="updateConfig()"/></label>
-                <button onclick="removeFixedExpense(this)">Remove</button>
+        <section class="panel">
+            <h2>Income streams</h2>
+            <div id="income-streams">
+                <div id="income-stream" class="row">
+                    <label>Description <input onblur="updateConfig()"/></label>
+                    <label>Amount <input type="number" step="0.01" onblur="updateConfig()"/></label>
+                    <label>Frequency (days) <input type="number" onblur="updateConfig()"/></label>
+                    <button type="button" class="remove-btn" onclick="removeIncomeStream(this)">Remove</button>
+                </div>
             </div>
-        </div>
-        <button onclick="addFixedExpense()">Add</button>
+            <button type="button" class="btn-primary" onclick="addIncomeStream()">Add income stream</button>
+        </section>
 
-        <h2>Fluctuating expenses</h2>
-        <div id="fluctuating-expenses">
-            <div id="fluctuating-expense">
-                <label>Description: <input onblur="updateConfig()"/></label>
-                <label>Amount (yearly): <input onblur="updateConfig()"/></label>
-                <button onclick="removeFluctuatingExpense(this)">Remove</button>
+        <section class="panel">
+            <h2>Fixed expenses</h2>
+            <div id="fixed-expenses">
+                <div id="fixed-expense" class="row">
+                    <label>Description <input onblur="updateConfig()"/></label>
+                    <label>Amount (yearly) <input type="number" step="0.01" onblur="updateConfig()"/></label>
+                    <button type="button" class="remove-btn" onclick="removeFixedExpense(this)">Remove</button>
+                </div>
             </div>
-        </div>
-        <button onclick="addFluctuatingExpense()">Add</button>
+            <button type="button" class="btn-primary" onclick="addFixedExpense()">Add fixed expense</button>
+        </section>
 
-        <h2>Expected spending</h2>
-        <div id="expected-spending-items">
-            <div id="expected-spending-item">
-                <label>Category: <input onblur="updateConfig()"/></label>
-                <label>Date: <input type="date" onblur="updateConfig()"/></label>
-                <label>Amount: <input onblur="updateConfig()"/></label>
-                <label>Description: <input onblur="updateConfig()"/></label>
-                <button onclick="removeExpectedSpendingItem(this)">Remove</button>
+        <section class="panel">
+            <h2>Fluctuating expenses</h2>
+            <div id="fluctuating-expenses">
+                <div id="fluctuating-expense" class="row">
+                    <label>Description <input onblur="updateConfig()"/></label>
+                    <label>Amount (yearly) <input type="number" step="0.01" onblur="updateConfig()"/></label>
+                    <button type="button" class="remove-btn" onclick="removeFluctuatingExpense(this)">Remove</button>
+                </div>
             </div>
-        </div>
-        <button onclick="addExpectedSpendingItem()">Add</button>
+            <button type="button" class="btn-primary" onclick="addFluctuatingExpense()">Add fluctuating expense</button>
+        </section>
 
-        <br/><br/>
-        <a href="sinking-fund.html">Next</a>
+        <section class="panel">
+            <h2>Expected spending</h2>
+            <div id="expected-spending-items">
+                <div id="expected-spending-item" class="row">
+                    <label>Category <input onblur="updateConfig()"/></label>
+                    <label>Date <input type="date" onblur="updateConfig()"/></label>
+                    <label>Amount <input type="number" step="0.01" onblur="updateConfig()"/></label>
+                    <label>Description <input onblur="updateConfig()"/></label>
+                    <button type="button" class="remove-btn" onclick="removeExpectedSpendingItem(this)">Remove</button>
+                </div>
+            </div>
+            <button type="button" class="btn-primary" onclick="addExpectedSpendingItem()">Add expected spending</button>
+        </section>
+
+        <a href="sinking-fund.html">Next: view sinking fund &rarr;</a>
     </body>
     <script src="get-started.js"></script>
 </html>

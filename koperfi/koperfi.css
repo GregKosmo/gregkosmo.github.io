@@ -1,0 +1,376 @@
+/* ==========================================================================
+   Koperfi — shared styles
+   A quiet, ledger-inspired look: warm paper background, forest-teal accent,
+   tabular monospace for figures so columns of money line up and are easy
+   to scan at a glance.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #f6f6f3;
+  --color-surface: #ffffff;
+  --color-ink: #202821;
+  --color-ink-soft: #5c6a61;
+  --color-border: #dfe3de;
+  --color-primary: #2f6f5e;
+  --color-primary-dark: #204b3f;
+  --color-primary-soft: #e6efec;
+  --color-negative: #a8402f;
+  --color-negative-soft: #f5e6e3;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --radius: 10px;
+  --gap: 14px;
+  --shadow: 0 1px 2px rgba(32, 40, 33, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 16px 16px 48px;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.45;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 4px 0 4px;
+}
+
+h2 {
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+  padding-top: 4px;
+}
+
+/* ---------- top nav ---------- */
+.nav {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.nav a,
+body > a {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.nav a:hover,
+body > a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- panels / sections ---------- */
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- form rows (get-started page) ---------- */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.row:last-of-type {
+  border-bottom: none;
+}
+
+.row label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--color-ink-soft);
+  font-weight: 500;
+  flex: 1 1 140px;
+  min-width: 0;
+}
+
+.row .remove-btn {
+  margin-left: auto;
+}
+
+/* ---------- generic inputs ---------- */
+input,
+select {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  width: 100%;
+  height: 38px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+
+/* numeric inputs read as figures */
+input[type="number"] {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+/* ---------- buttons ---------- */
+button {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 14px;
+  border-radius: 7px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.btn-primary,
+button[onclick^="add"],
+button[onclick^="saveNewAmount"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover,
+button[onclick^="add"]:hover,
+button[onclick^="saveNewAmount"]:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #fff;
+}
+
+.remove-btn {
+  background: transparent;
+  color: var(--color-negative);
+  border-color: transparent;
+  padding: 6px 8px;
+  font-size: 0.78rem;
+}
+
+.remove-btn:hover {
+  background: var(--color-negative-soft);
+  border-color: var(--color-negative-soft);
+  color: var(--color-negative);
+}
+
+/* ---------- action toolbar on sinking-fund page ---------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: flex-end;
+}
+
+.toolbar label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--color-ink-soft);
+  font-weight: 500;
+  flex: 1 1 130px;
+}
+
+.toolbar .actions {
+  display: flex;
+  gap: 8px;
+  flex: 1 1 100%;
+  margin-top: 4px;
+}
+
+.as-of-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.as-of-row label {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  font-weight: 500;
+}
+
+/* ---------- tables ---------- */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 100%;
+  font-size: 0.85rem;
+  background: var(--color-surface);
+}
+
+thead td {
+  position: sticky;
+  top: 0;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  z-index: 1;
+}
+
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+thead td:first-child,
+tbody td:first-child {
+  font-family: var(--font-sans);
+  font-variant-numeric: normal;
+}
+
+tbody tr:nth-child(even) {
+  background: #fbfbf9;
+}
+
+tbody tr:hover, .table-scroll table tbody tr:hover td:first-child {
+  background: var(--color-primary-soft);
+}
+
+/* keep the date column visible while the rest scrolls */
+.table-scroll table td:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--color-surface);
+  box-shadow: 1px 0 0 var(--color-border);
+}
+
+.table-scroll thead td:first-child {
+  background: var(--color-primary-soft);
+}
+
+/* balance / summary strip */
+#current-balance-head td,
+#current-balance-body td {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+#current-balance-body td {
+  color: var(--color-primary-dark);
+  font-size: 0.95rem;
+}
+
+/* ---------- collapsible full schedule ---------- */
+details.panel {
+  padding: 0;
+}
+
+details.panel > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+details.panel > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.panel > summary::after {
+  content: '+';
+  font-size: 1.3rem;
+  color: var(--color-ink-soft);
+}
+
+details.panel[open] > summary::after {
+  content: '\2212';
+}
+
+details.panel > summary + * {
+  padding: 0 16px 16px;
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 560px) {
+  body {
+    padding: 12px 12px 40px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.35rem;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .row {
+    gap: 8px 12px;
+  }
+
+  .row .remove-btn {
+    margin-left: 0;
+  }
+}

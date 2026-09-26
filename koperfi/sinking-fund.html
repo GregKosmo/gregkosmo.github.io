@@ -1,72 +1,87 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="koperfi.css" />
     <script src="decimal.js"></script>
 </head>
 
 <body>
-    <a href="koperfi.html">Home</a>
-    <a href="get-started.html">Config</a>
+    <nav class="nav">
+        <a href="koperfi.html">Home</a>
+        <a href="get-started.html">Config</a>
+    </nav>
     <h1>Koperfi</h1>
-    <label>As of date: <input type="date" id="as-of-date" onblur="calculate()"/></label><br/><br/>
 
-    <label>Amount: <input id="new-amount" type="number" /></label>
-    <label>Date: <input type="date" id="new-date" /></label>
-    <label>Category:
-        <select id="amount-type">
-        </select>
-    </label>
-    <label>Description:<input id="new-description"/></label>
-    <button type="button" onclick="calculateNewAmount()">What will it do?</button>
-    <button type="button" onclick="saveNewAmount()">Save</button>
-    <button type="button" onclick="refresh()">Clear</button>
-    <table>
-        <thead>
-            <tr id="table-heading">
-                <td>
-                    Date
-                </td>
-                <td>
-                    Total
-                </td>
-            </tr>
-        </thead>
-        <tbody id="table-body">
-        </tbody>
-    </table>
-    <h2>Current Balance</h2>
-    <table>
-        <thead>
-            <tr id="current-balance-head">
-            </tr>
-        </thead>
-        <tbody>
-            <tr id="current-balance-body"></tr>
-        </tbody>
-    </table>
-    <h2>Expenses This Cycle</h2>
-    <table>
-        <thead>
-            <tr>
-                <td>
-                    Date
-                </td>
-                <td>
-                    Amount
-                </td>
-                <td>
-                    Category
-                </td>
-                <td>
-                    Description
-                </td>
-            </tr>
-        </thead>
-        <tbody id="upcoming-expenses">
+    <div class="as-of-row">
+        <label for="as-of-date">As of date</label>
+        <input type="date" id="as-of-date" onblur="calculate()"/>
+    </div>
 
-        </tbody>
-    </table>
+    <section class="panel">
+        <h2>Log an expense</h2>
+        <div class="toolbar">
+            <label>Amount <input id="new-amount" type="number" step="0.01" /></label>
+            <label>Date <input type="date" id="new-date" /></label>
+            <label>Category
+                <select id="amount-type"></select>
+            </label>
+            <label>Description <input id="new-description"/></label>
+            <div class="actions">
+                <button type="button" onclick="calculateNewAmount()">What will it do?</button>
+                <button type="button" class="btn-primary" onclick="saveNewAmount()">Save</button>
+                <button type="button" class="remove-btn" onclick="refresh()">Clear</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Current Balance</h2>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr id="current-balance-head"></tr>
+                </thead>
+                <tbody>
+                    <tr id="current-balance-body"></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Expenses This Cycle</h2>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Amount</td>
+                        <td>Category</td>
+                        <td>Description</td>
+                    </tr>
+                </thead>
+                <tbody id="upcoming-expenses"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <details class="panel">
+        <summary>Full amortization schedule</summary>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr id="table-heading">
+                        <td>Date</td>
+                        <td>Total</td>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
+    </details>
 </body>
-<script src="sinking-fund.js?ver=6"></script>
+<script src="sinking-fund.js?ver=7"></script>
 
 </html>

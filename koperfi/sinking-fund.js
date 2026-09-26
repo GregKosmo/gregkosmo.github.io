@@ -237,10 +237,10 @@ function saveNewAmount() {
     })
     localStorage.setItem('koperfi-config', JSON.stringify(koperfiConfig))
     calculateNewAmount();
-    newAmountInput.value = null;
-    newDateInput.value = null;
-    newAmountTypeInput.value = null;
-    newDescriptionInput.value = null;
+    newAmountInput.value = '';
+    newDateInput.value = '';
+    newAmountTypeInput.selectedIndex = 0;
+    newDescriptionInput.value = '';
 }
 
 function refresh() {
