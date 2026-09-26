@@ -303,6 +303,7 @@ tbody tr:hover, .table-scroll table tbody tr:hover td:first-child {
 
 .table-scroll thead td:first-child {
   background: var(--color-primary-soft);
+  z-index: 9999;
 }
 
 /* balance / summary strip */
@@ -318,14 +319,9 @@ tbody tr:hover, .table-scroll table tbody tr:hover td:first-child {
 }
 
 /* ---------- collapsible full schedule ---------- */
-details.panel {
-  padding: 0;
-}
-
 details.panel > summary {
   cursor: pointer;
   list-style: none;
-  padding: 16px;
   font-weight: 700;
   font-size: 1.05rem;
   display: flex;
@@ -348,7 +344,7 @@ details.panel[open] > summary::after {
 }
 
 details.panel > summary + * {
-  padding: 0 16px 16px;
+  margin-top: 10px;
 }
 
 /* ---------- small screens ---------- */
