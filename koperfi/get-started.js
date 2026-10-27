@@ -67,7 +67,7 @@ function removeExpectedSpendingItem(button) {
     updateConfig()
 }
 
-function updateConfig() {
+async function updateConfig() {
     const config = {
         incomeStreams: [],
         fixedExpenses: [],
@@ -101,11 +101,24 @@ function updateConfig() {
             description: expectedSpendingItem.children[3].children[0].value
         })
     }
-    localStorage.setItem('koperfi-config', JSON.stringify(config))
+    try {
+        await KoperfiDB.saveConfig(config);
+    } catch (err) {
+        console.error('Koperfi failed to save config:', err);
+    }
 }
 
-function loadConfig() {
-    const config = JSON.parse(localStorage.getItem('koperfi-config') || '{}');
+async function loadConfig() {
+    let config = null;
+    try {
+        config = await KoperfiDB.loadConfig();
+    } catch (err) {
+        console.error('Koperfi failed to load config:', err);
+        return;
+    }
+    if (!config) {
+        return;
+    }
     if (config.incomeStreams?.length) {
         incomeStreams.replaceChildren()
         for (const incomeStream of config.incomeStreams) {
@@ -132,4 +145,4 @@ function loadConfig() {
     }
 }
 
-loadConfig();
+KoperfiAuth.onAuthorized(() => { loadConfig(); });
