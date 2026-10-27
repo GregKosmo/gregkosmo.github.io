@@ -4,7 +4,10 @@ const newAmountTypeInput = document.querySelector('#amount-type');
 const newDescriptionInput = document.querySelector('#new-description');
 const tableHeading = document.querySelector('#table-heading');
 const tableBody = document.querySelector('#table-body');
-const koperfiConfig = JSON.parse(localStorage.getItem('koperfi-config') || '{}');
+let koperfiConfig = null;
+let CONFIG = null;
+let YEARLY_ALLOCATION = null;
+let EXPECTED_SPENDING = null;
 const currentBalanceHead = document.querySelector('#current-balance-head');
 const currentBalanceBody = document.querySelector('#current-balance-body');
 const upcomingExpenses = document.querySelector('#upcoming-expenses');
@@ -13,34 +16,70 @@ const asOfDateInput = document.querySelector('#as-of-date');
 const today = new Date();
 asOfDateInput.valueAsDate = today;
 
-const CONFIG = {
-    START_DATE: new Date(2026, 0, 2),
-    CATEGORIES: koperfiConfig.fluctuatingExpenses.reduce((current, next) => {
-        current[next.description] = next.description
+function buildFromConfig() {
+    CONFIG = {
+        START_DATE: new Date(2026, 0, 2),
+        CATEGORIES: koperfiConfig.fluctuatingExpenses.reduce((current, next) => {
+            current[next.description] = next.description
+            return current;
+        }, {})
+    };
+    YEARLY_ALLOCATION = koperfiConfig.fluctuatingExpenses.reduce((current, next) => {
+        current[next.description] = new Decimal(next.amount)
         return current;
     }, {})
-};
-const YEARLY_ALLOCATION = koperfiConfig.fluctuatingExpenses.reduce((current, next) => {
-    current[next.description] = new Decimal(next.amount)
-    return current;
-}, {})
-const EXPECTED_SPENDING = koperfiConfig.expectedSpendingItems.reduce((current, next) => {
-    if (!current[next.category]) {
-        current[next.category] = []
+    EXPECTED_SPENDING = (koperfiConfig.expectedSpendingItems || []).reduce((current, next) => {
+        if (!current[next.category]) {
+            current[next.category] = []
+        }
+        current[next.category].push([new Date(next.date), new Decimal(next.amount), next.description])
+        return current;
+    }, {})
+    for (const category of Object.values(CONFIG.CATEGORIES)) {
+        const option = document.createElement('option');
+        const heading = document.createElement('td');
+        option.textContent = category;
+        heading.textContent = category;
+        newAmountTypeInput.appendChild(option);
+        tableHeading.appendChild(heading)
     }
-    current[next.category].push([new Date(next.date), new Decimal(next.amount), next.description])
-    return current;
-}, {})
-for (const category of Object.values(CONFIG.CATEGORIES)) {
-    const option = document.createElement('option');
-    const heading = document.createElement('td');
-    option.textContent = category;
-    heading.textContent = category;
-    newAmountTypeInput.appendChild(option);
-    tableHeading.appendChild(heading)
 }
 
+function showNotice(message) {
+    const notice = document.createElement('div');
+    notice.style.cssText = 'padding:12px 14px;margin-bottom:12px;border:1px solid #b00;border-radius:6px;background:#fff4f4;';
+    const text = document.createElement('span');
+    text.textContent = message + ' ';
+    const link = document.createElement('a');
+    link.href = 'get-started.html';
+    link.textContent = 'Open the Config page';
+    notice.append(text, link);
+    document.body.insertBefore(notice, document.body.children[1] || null);
+}
+
+// Initialization is async: it waits for the Firebase auth gate, then loads
+// the shared config from Firestore before building anything or calculating.
+async function init() {
+    try {
+        const config = await KoperfiDB.loadConfig();
+        if (!config || !config.fluctuatingExpenses || !config.fluctuatingExpenses.length) {
+            showNotice('Shared data has not been seeded yet. Open the Config page to set up your categories and expected spending, or run the seed page to load the shared data.');
+            return;
+        }
+        koperfiConfig = config;
+        koperfiConfig.expectedSpendingItems = koperfiConfig.expectedSpendingItems || [];
+        buildFromConfig();
+        calculate();
+    } catch (err) {
+        console.error('Koperfi failed to load shared data:', err);
+        showNotice('Could not load the shared sinking fund data. Please reload the page and try again.');
+    }
+}
+
+KoperfiAuth.onAuthorized(() => { init(); });
+
 function calculate() {
+    if (!CONFIG) return;
     const AMORTIZATION = {}
     tableBody.replaceChildren();
     currentBalanceHead.replaceChildren();
@@ -221,6 +260,7 @@ function calculate() {
 
 
 function calculateNewAmount() {
+    if (!EXPECTED_SPENDING) return;
     if (!EXPECTED_SPENDING[newAmountTypeInput.value]) {
         EXPECTED_SPENDING[newAmountTypeInput.value] = []
     }
@@ -228,14 +268,22 @@ function calculateNewAmount() {
     calculate();
 }
 
-function saveNewAmount() {
+async function saveNewAmount() {
+    if (!koperfiConfig) return;
     koperfiConfig.expectedSpendingItems.push({
         category: newAmountTypeInput.value,
         date: newDateInput.value,
         amount: newAmountInput.value,
         description: newDescriptionInput.value
     })
-    localStorage.setItem('koperfi-config', JSON.stringify(koperfiConfig))
+    try {
+        await KoperfiDB.saveConfig(koperfiConfig);
+    } catch (err) {
+        console.error('Koperfi failed to save:', err);
+        koperfiConfig.expectedSpendingItems.pop();
+        alert('Could not save this expense to the shared fund. Please try again.');
+        return;
+    }
     calculateNewAmount();
     newAmountInput.value = '';
     newDateInput.value = '';
@@ -247,4 +295,4 @@ function refresh() {
     location.reload();
 }
 
-calculate();
+// First calculation happens in init(), after auth and the Firestore load.
